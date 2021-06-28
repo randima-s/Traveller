@@ -3,7 +3,7 @@ import {Card,Button} from "react-bootstrap";
 
 const CardItem=(color)=>(
     <React.Fragment>
-        <div className="col-lg-4 col-md-6 p-2">
+        <div className="col-lg-4 col-md-4 col-sm-6 p-2">
             
         <Card  className={color}>
         <Card.Img variant="top" src="assets/img/1.jpg" />
@@ -27,7 +27,7 @@ function HomeBodyComponentBlog(props){
     return(
         <div className="container-fluid  ">
         <div className="row my-4">
-        <h1 className="border-primary py-2 ">Blog</h1>
+        <h2 className="border-primary py-2 ">Blog</h2>
             {CardItem("bg-primary")}
             {CardItem("bg-primary")}
             {CardItem("bg-primary")}
@@ -40,7 +40,7 @@ function HomeBodyComponentGallery(props){
     return(
         <div className="container-fluid  ">
         <div className="row my-4">
-        <h1 className="border-primary py-2 ">Gallery</h1>
+        <h2 className="border-primary py-2 ">Gallery</h2>
             {CardItem("bg-dark")}
             {CardItem("bg-dark")}
             {CardItem("bg-dark")}
