@@ -24,6 +24,7 @@ class NavbarComponent extends Component{
                     <Nav className="ms-auto text-center">
                     <Nav.Link href="#home" onSelect={()=>this.ToggleClick(false)}>Home</Nav.Link>
                     <Nav.Link href="#link" onSelect={()=>this.ToggleClick(false)}>Galley</Nav.Link>
+                    <Nav.Link href="#contact" onSelect={()=>this.ToggleClick(false)}>Contact</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 </div>

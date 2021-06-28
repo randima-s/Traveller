@@ -1,6 +1,7 @@
 import { Component } from "react";
 import NavbarComponent from "./NavbarComponent";
 import HomeComponent from "./HomeComponent";
+import FooterComponent from "./FooterComponent";
 
 class MainComponent extends Component{
 
@@ -9,6 +10,7 @@ class MainComponent extends Component{
             <div>
                 <NavbarComponent/>
                 <HomeComponent/>
+                <FooterComponent/>
             </div>
         );
     };
