@@ -1,6 +1,6 @@
 import { Component } from "react";
 import NavbarComponent from "./NavbarComponent";
-import CarouselComponent from "./CarouselComponent";
+import HomeComponent from "./HomeComponent";
 
 class MainComponent extends Component{
 
@@ -8,7 +8,7 @@ class MainComponent extends Component{
         return(
             <div>
                 <NavbarComponent/>
-                <CarouselComponent/>
+                <HomeComponent/>
             </div>
         );
     };
