@@ -1,7 +1,6 @@
 import { Component } from "react";
 import CarouselComponent from "./CarouselComponent";
-import HomeCardComponent from "./HomeCardComponent";
-import {HomeBodyComponentBlog,HomeBodyComponentGallery} from "./HomeBodyComponent";
+import {HomeBodyComponent} from "./HomeBodyComponent";
 import {Card} from "react-bootstrap";
 import {LOCATIONS} from "../shared/locations";
 import {HOMETILES} from "../shared/hometiles";
@@ -46,27 +45,25 @@ class HomeComponent extends Component{
         })
 
         const QuoteText=(
-            <div>
-                <h2>“The world is a book and those who do not travel read only one page.”</h2>
+            <div >
+                <h2 className="allign-middle">“The world is a book and those who do not travel read only one page.”</h2>
                 <p>Saint Augustine</p>
             </div>
         );
 
         return(
-            <div className="container-fluid m-0 p-0 ">
-                <div className="row mx-1">
+            <div className="container-fluid m-0 p-2  ">
+                <div className="row ">
                     <div className="col-md-6">
                     <CarouselComponent locations={this.state.locations}/>
                     </div>
                     <div className=" col-md-6 ">
-                        <div className="p-5 ">
+                        <div className="d-flex p-4  align-items-center h-100">
                             {QuoteText}
-                            <HomeCardComponent hometiles={this.state.hometiles}/>
                         </div>
                     </div>
                 </div>
-                <HomeBodyComponentBlog />
-                <HomeBodyComponentGallery />
+                <HomeBodyComponent cards={this.state.hometiles}/>
             </div>
         );
     };

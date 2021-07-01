@@ -1,53 +1,37 @@
 import React from "react";
-import {Card,Button} from "react-bootstrap";
+import {Card} from "react-bootstrap";
 
-const CardItem=(color)=>(
-    <React.Fragment>
-        <div className="col-lg-4 col-md-4 col-sm-6 p-2">
+
+function HomeBodyComponent(props){
+
+    const CardItem=props.cards.map((card)=>{
+        return(
+        <React.Fragment>
+        <div className="col-lg-4 col-md-4 col-sm-12 pb-4" >
             
-        <Card  className={color}>
-        <Card.Img variant="top" src="assets/img/1.jpg" />
+        <Card  bg="light">
+        <Card.Img variant="top" src={card.image} />
         <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            <Card.Title>{card.title}</Card.Title>
+            <Card.Text>{card.desc}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
         </Card.Body>
         </Card>
         </div>
-    </React.Fragment>
-);
-
-function HomeBodyComponentBlog(props){
-
-    
+        </React.Fragment>
+        );
+    });
 
     return(
-        <div className="container-fluid  ">
-        <div className="row my-4">
-        <h2 className="border-primary py-2 ">Blog</h2>
-            {CardItem("bg-primary")}
-            {CardItem("bg-primary")}
-            {CardItem("bg-primary")}
-        </div>
-        </div>
-    );
-}
-
-function HomeBodyComponentGallery(props){
-    return(
-        <div className="container-fluid  ">
-        <div className="row my-4">
-        <h2 className="border-primary py-2 ">Gallery</h2>
-            {CardItem("bg-dark")}
-            {CardItem("bg-dark")}
-            {CardItem("bg-dark")}
+        <div className="container-fluid p-0 ">
+        <div className="row my-2 ">
+        <h2 className="border-primary py-2 ms-2 bg-light">Explore</h2>
+        {CardItem}
         </div>
         </div>
     );
 }
 
 
-export  {HomeBodyComponentBlog,HomeBodyComponentGallery};
+
+export  {HomeBodyComponent};
