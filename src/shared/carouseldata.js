@@ -1,4 +1,4 @@
-export const LOCATIONS=[
+export const CAROUSELDATA=[
     {
         id: 0,
         name:'A',

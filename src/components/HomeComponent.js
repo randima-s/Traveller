@@ -1,48 +1,15 @@
 import { Component } from "react";
 import CarouselComponent from "./CarouselComponent";
 import {HomeBodyComponent} from "./HomeBodyComponent";
-import {Card} from "react-bootstrap";
-import {LOCATIONS} from "../shared/locations";
-import {HOMETILES} from "../shared/hometiles";
-
-
-function CardComponent(props){
-    return(
-        <div className="col-lg-4">
-        <Card className="bg-primary" text="light" border="primary">
-        <Card.Header className="text-center ">Blog</Card.Header>
-        <Card.Img   src="/assets/img/1.jpg" id="HomeCardImg"/>
-        </Card>
-        </div>
-    );
-}
-
 
 
 class HomeComponent extends Component{
 
     constructor(props){
         super(props);
-
-        this.state={
-            locations:LOCATIONS,
-            hometiles:HOMETILES
-        }
     }
 
     render(){
-
-        const HomeTiles=this.state.hometiles.map((tile)=>{
-            console.log(11);
-            return(
-                <div className="col-lg-4">
-                <Card className={tile.color} text="light" border="primary">
-                <Card.Header className="text-center ">{tile.title}</Card.Header>
-                <Card.Img   src={tile.image} id="HomeCardImg"/>
-                </Card>
-                </div>
-            );
-        })
 
         const QuoteText=(
             <div >
@@ -55,7 +22,7 @@ class HomeComponent extends Component{
             <div className="container-fluid m-0 p-2  ">
                 <div className="row ">
                     <div className="col-md-6">
-                    <CarouselComponent locations={this.state.locations}/>
+                    <CarouselComponent images={this.props.carousel}/>
                     </div>
                     <div className=" col-md-6 ">
                         <div className="d-flex p-4  align-items-center h-100">
@@ -63,7 +30,7 @@ class HomeComponent extends Component{
                         </div>
                     </div>
                 </div>
-                <HomeBodyComponent cards={this.state.hometiles}/>
+                <HomeBodyComponent cards={this.props.explore}/>
             </div>
         );
     };

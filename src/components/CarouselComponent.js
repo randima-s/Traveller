@@ -32,7 +32,7 @@ const RenderCarousel=({locations})=>{
 
 function CarouselComponent(props) {
 
-    const filteredLocations=props.locations.filter((location)=>location.carousel===true);
+    const filteredLocations=props.images.filter((location)=>location.carousel===true);
     //console.log(filteredLocations);
     const item=filteredLocations.map((location)=>{
         //console.log("called");

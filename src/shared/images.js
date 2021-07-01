@@ -1,0 +1,23 @@
+export const IMAGES=[
+    {
+        id:0,
+        postId:0,
+        caption:"image",
+        isFeatured:true,
+        url:"/assets/img/1.jpg"
+    },
+    {
+        id:1,
+        postId:0,
+        caption:"image",
+        isFeatured:false,
+        url:"/assets/img/2.jpg"
+    },
+    {
+        id:2,
+        postId:1,
+        caption:"image",
+        isFeatured:true,
+        url:"/assets/img/2.jpg"
+    }
+];

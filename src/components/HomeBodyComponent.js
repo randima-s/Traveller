@@ -1,18 +1,21 @@
 import React from "react";
 import {Card} from "react-bootstrap";
-
+import {Link} from "react-router-dom";
 
 function HomeBodyComponent(props){
+    const linkStyle={
+        textDecoration:"none"
+    };
 
     const CardItem=props.cards.map((card)=>{
         return(
         <React.Fragment>
         <div className="col-lg-4 col-md-4 col-sm-12 pb-4" >
-            
+        
         <Card  bg="light">
-        <Card.Img variant="top" src={card.image} />
+        <a href={card.link}><Card.Img variant="top" src={card.image}  /></a>
         <Card.Body>
-            <Card.Title>{card.title}</Card.Title>
+            <a href={card.link} style={linkStyle}><Card.Title >{card.title}</Card.Title></a>
             <Card.Text>{card.desc}
             </Card.Text>
         </Card.Body>
