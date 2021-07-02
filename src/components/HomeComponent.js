@@ -5,8 +5,8 @@ import {HomeBodyComponent} from "./HomeBodyComponent";
 
 class HomeComponent extends Component{
 
-    constructor(props){
-        super(props);
+    componentDidMount(){
+        document.title="Traveller Home"
     }
 
     render(){

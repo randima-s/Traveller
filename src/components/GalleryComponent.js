@@ -3,19 +3,16 @@ import GalleryItemComponent from "./GalleryItemComponent";
 import {Breadcrumb} from "react-bootstrap";
 
 class GalleryComponent extends Component{
-    constructor(props){
-        super(props);
 
-
+    componentDidMount(){
+        document.title="Traveller Gallery"
     }
-
-
 
     render(){
         const Items=this.props.images.map((image)=>{
             //console.log(image);
             return(
-                <GalleryItemComponent image={image}  />
+                <GalleryItemComponent image={image} key={image.id} />
             );
         })
 

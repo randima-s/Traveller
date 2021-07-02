@@ -3,8 +3,8 @@ import BlogItemComponent from "./BlogItemComponent";
 import {Breadcrumb} from "react-bootstrap";
 class BlogComponent extends Component{
 
-    constructor(props){
-        super(props);
+    componentDidMount(){
+        document.title="Traveller Blog"
     }
 
 
@@ -12,9 +12,11 @@ class BlogComponent extends Component{
 
         const Items=this.props.blogs.map((blog=>{
             return <BlogItemComponent 
+            key={blog.id}
             blogData={blog}
             images={this.props.images.filter((image)=>image.postId===blog.id)}
-            comments={this.props.comments.filter((comment)=>comment.postId===blog.id)}/>
+            comments={this.props.comments.filter((comment)=>comment.postId===blog.id)}
+            addComment={this.props.addComment}/>
         }));
 
         return(

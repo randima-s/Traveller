@@ -40,5 +40,12 @@ export const IMAGES=[
         caption:"Buffet",
         isFeatured:false,
         url:"/assets/img/IMG_20210327_092851.jpg"
+    },
+    {
+        id:6,
+        postId:1,
+        caption:"Bambarakanda Waterfall",
+        isFeatured:true,
+        url:"/assets/img/IMG_20191027_115930.jpg"
     }
 ];

@@ -9,6 +9,8 @@ import ContactComponent from "./ContactComponent";
 import {Switch,Route,Redirect,withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
+import { addComment,fetchComments ,loadBlogs} from '../redux/ActionCreators';
+
 
 const mapStateToProps = state => {
     return {
@@ -20,28 +22,30 @@ const mapStateToProps = state => {
     }
 }
 
-class MainComponent extends Component{
-    constructor(props){
-        super(props);
+const mapDispatchToProps=dispatch=>({
+    addComment:(comment,postId)=>dispatch(addComment(comment,postId)),
+    fetchComments:()=>dispatch(fetchComments()),
+    loadBlogs:()=>dispatch(loadBlogs())
+})
 
-        /*this.state={
-            images:IMAGES,
-            carousel:CAROUSELDATA,
-            explore:EXPLORE,
-            blogs:BLOGS,
-            comments:COMMENTS
-        }*/
+class MainComponent extends Component{
+
+    componentDidMount(){
+        this.props.fetchComments();
+        this.props.loadBlogs();
     }
 
     render(){
+        //console.log("Main rendered");
         return(
             <div>
                 <NavbarComponent/>
                 <Switch>
-                    <Route path="/home" component={()=><HomeComponent carousel={this.props.carousel} explore={this.props.explore}/>}></Route>
-                    <Route path="/gallery" component={()=><GalleryComponent images={this.props.images}/>}></Route>
-                    <Route path="/blog" component={()=><BlogComponent images={this.props.images} blogs={this.props.blogs} comments={this.props.comments}/>}></Route>
-                    <Route path="/contact" component={()=><ContactComponent/>}/>
+                    <Route exact path="/home" component={()=><HomeComponent carousel={this.props.carousel} explore={this.props.explore}/>}></Route>
+                    <Route exact path="/gallery" component={()=><GalleryComponent images={this.props.images}/>}></Route>
+                    <Route exact path="/blog" component={()=><BlogComponent images={this.props.images} blogs={this.props.blogs.blogs} 
+                    comments={this.props.comments.comments} addComment={this.props.addComment} />}></Route>
+                    <Route exact path="/contact" component={()=><ContactComponent/>}/>
                     <Redirect to="/home"></Redirect>
                 </Switch>
                 <FooterComponent/>
@@ -50,4 +54,4 @@ class MainComponent extends Component{
     };
 }
 
-export default withRouter(connect(mapStateToProps)(MainComponent));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(MainComponent));

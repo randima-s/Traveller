@@ -4,5 +4,11 @@ export const BLOGS=[
         title:"Pasikuda",
         desc:"Trip to Pasikudah beach. A boat ride in terryfying rainy weather. Stay at Anantaya Resort and Spa Hotel",
         location:"http:/www.google.lk"
+    },
+    {
+        id:1,
+        title:"Belihuloya",
+        desc:"Trip to Pasikudah beach. A boat ride in terryfying rainy weather. Stay at Anantaya Resort and Spa Hotel",
+        location:"http:/www.google.lk"
     }
 ];

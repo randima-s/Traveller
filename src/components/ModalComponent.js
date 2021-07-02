@@ -1,12 +1,12 @@
-import {Modal,Button} from "react-bootstrap";
+import {Modal} from "react-bootstrap";
 
 function ModalComponent(props) {
-    console.log("rendered");
+    //console.log("rendered");
     return (
         <Modal show={props.show} onHide={props.modalHide} animation={false}  className="modal-custom">
         
         <Modal.Body className="m-0 p-0">
-        <img src={props.img} className=" w-100"></img>
+        <img src={props.img} alt={props.caption} className=" w-100"></img>
           <p className=" position-absolute bottom-0 bg-dark text-white  m-0">
           {props.caption}
           </p>
