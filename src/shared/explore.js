@@ -1,21 +1,21 @@
 export const EXPLORE=[
     {
         title:"Blog",
-        image:"/assets/img/1.jpg",
-        desc:"bg-primary",
+        image:"/assets/icons/blog.png",
+        desc:"A visual blog of amazing places",
         link:"/blog"
     },
     {
         title:"Gallery",
-        image:"/assets/img/2.jpg",
-        desc:"bg-dark",
+        image:"/assets/icons/gallery.png",
+        desc:"The collection of all photos",
         link:"/gallery"
         
     },
     {
         title:"Contact",
-        image:"/assets/img/3.jpg",
-        desc:"bg-success",
+        image:"/assets/icons/contact.png",
+        desc:"Contatct me",
         link:"/contact"
     }
 ];

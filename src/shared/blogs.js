@@ -1,14 +1,8 @@
 export const BLOGS=[
     {
         id:0,
-        title:"post",
-        desc:"dd",
-        location:"aaa"
-    },
-    {
-        id:1,
-        title:"post 2",
-        desc:"dd",
-        location:"aa"
+        title:"Pasikuda",
+        desc:"Trip to Pasikudah beach. A boat ride in terryfying rainy weather. Stay at Anantaya Resort and Spa Hotel",
+        location:"http:/www.google.lk"
     }
 ];

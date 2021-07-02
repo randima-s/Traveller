@@ -1,5 +1,6 @@
 import { Component } from "react";
 import GalleryItemComponent from "./GalleryItemComponent";
+import {Breadcrumb} from "react-bootstrap";
 
 class GalleryComponent extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ class GalleryComponent extends Component{
 
     render(){
         const Items=this.props.images.map((image)=>{
-            console.log(image);
+            //console.log(image);
             return(
                 <GalleryItemComponent image={image}  />
             );
@@ -21,8 +22,10 @@ class GalleryComponent extends Component{
         return (
             <div>
                 <div className="container-fluid bg-light p-4">
-                    <h2>Welcome to the Gallery</h2>
-                    <p>welcome</p>
+                <Breadcrumb>
+                <Breadcrumb.Item href="/home">Home</Breadcrumb.Item>
+                <Breadcrumb.Item active>Gallery</Breadcrumb.Item>
+                </Breadcrumb>
                 </div>
                 <div className="row container-fluid p-4">
                     {Items}

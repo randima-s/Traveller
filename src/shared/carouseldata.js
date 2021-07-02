@@ -1,23 +1,23 @@
 export const CAROUSELDATA=[
     {
         id: 0,
-        name:'A',
+        name:'Anantaya',
         carousel:true,
-        description:"Hello world",
+        description:"Anantaya Hotel at Pasikudah",
         image: '/assets/img/3.jpg'
     },
     {
         id: 1,
-        name:'B',
+        name:'Puttalam',
         carousel:true,
-        description:"Hello world",
-        image: '/assets/img/2.jpg'
+        description:"Near Kalpitiya Beach",
+        image: '/assets/img/puttalam.jpg'
     },
     {
         id: 3,
-        name:'B',
+        name:'Habrana',
         carousel:true,
-        description:"Hello world",
-        image: '/assets/img/1.jpg'
+        description:"Watching Elephants in Habarana",
+        image: '/assets/img/habarana_elephant.jpg'
     }
 ];

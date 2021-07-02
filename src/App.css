@@ -15,3 +15,7 @@
 #HomeCardImg{
     opacity: 0.8;
 }
+
+.modal-custom{
+    height: 100vh;
+}
