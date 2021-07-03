@@ -5,7 +5,8 @@ import {Link} from "react-router-dom";
 class BlogComponent extends Component{
 
     componentDidMount(){
-        document.title="Traveller Blog"
+        document.title="Traveller Blog";
+        window.scrollTo(0, 0);
     }
 
 

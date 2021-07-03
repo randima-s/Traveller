@@ -75,7 +75,7 @@ import ModalComponent from "./ModalComponent";
              <div>
                  {props.blogData.desc} 
              </div>
-             <a href={props.blogData.location}><img src="assets/icons/map.png" alt="Location" className=" my-1"></img></a>
+             <a href={props.blogData.location}><img src="Traveller/assets/icons/map.png" alt="Location" className=" my-1"></img></a>
              <div>
                  <hr></hr>
                  {Comments}

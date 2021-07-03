@@ -5,6 +5,7 @@ import FooterComponent from "./FooterComponent";
 import GalleryComponent from "./GalleryComponent";
 import BlogComponent from "./BlogComponent";
 import ContactComponent from "./ContactComponent";
+import ScrollToTopOnMount from "./ScrollToTopOnMount";
 
 import {Switch,Route,Redirect,withRouter} from "react-router-dom";
 import {connect} from "react-redux";
@@ -47,6 +48,7 @@ class MainComponent extends Component{
         return(
             <div>
                 <NavbarComponent/>
+                <ScrollToTopOnMount/>
                 <Switch>
                     <Route exact path="/" component={()=><HomeComponent carousel={this.props.carousel} explore={this.props.explore} />}></Route>
                     <Route exact path="/gallery" component={()=><GalleryComponent images={this.props.images}/>}></Route>
