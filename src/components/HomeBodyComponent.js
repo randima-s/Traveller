@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 
 function HomeBodyComponent(props){
@@ -11,9 +11,9 @@ function HomeBodyComponent(props){
         <div className="col-lg-2 col-md-3 col-sm-4 pb-4  align-items-stretch" key={card.id} >
         
         <Card  bg="light">
-        <a href={card.link} ><img  src={card.image} alt={card.title} className="d-block rounded-circle w-50 mx-auto" /></a>
+        <Link to={card.link} ><img  src={card.image} alt={card.title} className="d-block rounded-circle w-50 mx-auto" /></Link>
         <Card.Body className="text-center">
-            <a href={card.link} style={linkStyle}><Card.Title >{card.title}</Card.Title></a>
+            <Link to={card.link} style={linkStyle}><Card.Title >{card.title}</Card.Title></Link>
             <Card.Text>{card.desc}
             </Card.Text>
         </Card.Body>

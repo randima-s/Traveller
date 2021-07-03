@@ -1,6 +1,7 @@
 import {Component} from "react"
 import BlogItemComponent from "./BlogItemComponent";
-import {Breadcrumb} from "react-bootstrap";
+import {Link} from "react-router-dom";
+
 class BlogComponent extends Component{
 
     componentDidMount(){
@@ -22,10 +23,10 @@ class BlogComponent extends Component{
         return(
             <div>
                 <div className="container-fluid bg-light p-4">
-                <Breadcrumb>
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Blog</Breadcrumb.Item>
-                </Breadcrumb>
+                <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active">Blog</li>
+                </ol>
                 </div>
                 <div >
                     {Items}

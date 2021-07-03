@@ -1,6 +1,6 @@
 import { Component } from "react";
 import GalleryItemComponent from "./GalleryItemComponent";
-import {Breadcrumb} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 class GalleryComponent extends Component{
 
@@ -19,10 +19,10 @@ class GalleryComponent extends Component{
         return (
             <div>
                 <div className="container-fluid bg-light p-4">
-                <Breadcrumb>
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item active>Gallery</Breadcrumb.Item>
-                </Breadcrumb>
+                <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active">Gallery</li>
+                </ol>
                 </div>
                 <div className="row container-fluid p-4">
                     {Items}

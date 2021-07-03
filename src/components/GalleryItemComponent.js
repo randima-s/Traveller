@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import ModalComponent from "./ModalComponent";
+import {Link} from "react-router-dom";
 
 function GalleryItemComponent(props){
     const [modalShow,setModalShow]=useState(false);
@@ -15,7 +16,7 @@ function GalleryItemComponent(props){
             <div className="border border-primary border-2 mt-1 p-1 rounded-3">
             <img src={props.image.url.replace(regExPatern,"/small/")} alt={props.image.caption} className="w-100 rounded-3" onClick={()=>setModalShow(true)}></img>
             <span>{props.image.caption} </span>
-            <a href={"/blog/#"+props.image.postId}><span className="badge bg-primary text-center">post</span></a>
+            <Link to={"/blog/#"+props.image.postId}><span className="badge bg-primary text-center">post</span></Link>
             </div>
         </div>
         </React.Fragment>
