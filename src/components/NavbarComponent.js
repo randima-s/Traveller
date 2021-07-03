@@ -1,6 +1,6 @@
 import { Component } from "react";
 import {Navbar,Nav} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 
 class NavbarComponent extends Component{
     constructor(props){
@@ -18,7 +18,7 @@ class NavbarComponent extends Component{
         return(
             <Navbar bg="dark" expand="lg" variant="dark" expanded={this.state.NavbarExpanded}>
                 <div className="container-fluid ">
-                <Navbar.Brand href="/">Traveller</Navbar.Brand>
+                <Link to="/" className="navbar-brand">Traveller</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>this.ToggleClick(!this.state.NavbarExpanded)} />
                 <Navbar.Collapse id="responsive-navbar-nav"  >
                     <Nav className="ms-auto text-center">
