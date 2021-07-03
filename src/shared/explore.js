@@ -2,7 +2,7 @@ export const EXPLORE=[
     {   
         id:0,
         title:"Blog",
-        image:"/Traveller/assets/icons/blog.png",
+        image:"/assets/icons/blog.png",
         desc:"A visual blog of amazing places",
         link:"/blog"
     },

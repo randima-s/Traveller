@@ -6,6 +6,7 @@ import {HomeBodyComponent} from "./HomeBodyComponent";
 class HomeComponent extends Component{
 
     componentDidMount(){
+        //this.props.fetchData();
         document.title="Traveller Home"
     }
 

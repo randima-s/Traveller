@@ -2,3 +2,5 @@ export const LOAD_COMMENTS="LOAD_COMMENTS";
 export const LOAD_BLOGS="LOAD_BLOGS";
 export const LOAD_IMAGES="LOAD_IMAGES"
 export const ADD_COMMENT="ADD_COMMENT";
+export const LOAD_EXPLORE="LOAD_EXPLORE";
+export const LOAD_CAROUSEL="LOAD_CAROUSEL";

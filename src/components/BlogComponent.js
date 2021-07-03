@@ -23,7 +23,7 @@ class BlogComponent extends Component{
             <div>
                 <div className="container-fluid bg-light p-4">
                 <Breadcrumb>
-                <Breadcrumb.Item href="/home">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
                 <Breadcrumb.Item active>Blog</Breadcrumb.Item>
                 </Breadcrumb>
                 </div>
