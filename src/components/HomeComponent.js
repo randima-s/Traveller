@@ -22,9 +22,9 @@ class HomeComponent extends Component{
         return(
             <div className="container-fluid m-0 p-2  ">
                 <div className="row ">
-                    <div className="col-md-6">
+                    <h1 className="col-md-6">
                     <CarouselComponent images={this.props.carousel}/>
-                    </div>
+                    </h1>
                     <div className=" col-md-6 ">
                         <div className="d-flex p-4  align-items-center h-100">
                             {QuoteText}

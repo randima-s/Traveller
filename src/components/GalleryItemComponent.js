@@ -1,7 +1,8 @@
 import React from "react";
 import {useState} from "react";
 import ModalComponent from "./ModalComponent";
-import {Link} from "react-router-dom";
+//import {Link} from "react-router-dom";
+import {NavHashLink} from "react-router-hash-link";
 
 function GalleryItemComponent(props){
     const [modalShow,setModalShow]=useState(false);
@@ -16,7 +17,7 @@ function GalleryItemComponent(props){
             <div className="border border-primary border-2 mt-1 p-1 rounded-3">
             <img src={props.image.url.replace(regExPatern,"/small/")} alt={props.image.caption} className="w-100 rounded-3" onClick={()=>setModalShow(true)}></img>
             <span>{props.image.caption} </span>
-            <Link to={"/blog/#"+props.image.postId}><span className="badge bg-primary text-center">post</span></Link>
+            <NavHashLink to={"/blog/#"+props.image.postId}><span className="badge bg-primary text-center">post</span></NavHashLink>
             </div>
         </div>
         </React.Fragment>

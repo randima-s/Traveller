@@ -5,7 +5,6 @@ function FooterComponent(props){
             <div className="row">
                 <div className="col-md-2">
                     <h5>Randima Senanayaka</h5>
-                    <a href="mailto:rmsenanayake@gmail.com"><p>rmsenanayake@gmail.com</p></a>
                 </div>
             </div>
         </div>

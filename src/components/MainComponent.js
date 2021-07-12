@@ -5,9 +5,9 @@ import FooterComponent from "./FooterComponent";
 import GalleryComponent from "./GalleryComponent";
 import BlogComponent from "./BlogComponent";
 import ContactComponent from "./ContactComponent";
-import ScrollToTopOnMount from "./ScrollToTopOnMount";
+//import ScrollToTopOnMount from "./ScrollToTopOnMount";
 
-import {Switch,Route,Redirect,withRouter} from "react-router-dom";
+import {Switch,Route,withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 import { addComment,fetchComments ,fetchBlogs,fetchHome,fetchImages} from '../redux/ActionCreators';
@@ -48,14 +48,14 @@ class MainComponent extends Component{
         return(
             <div>
                 <NavbarComponent/>
-                <ScrollToTopOnMount/>
+                
                 <Switch>
                     <Route exact path="/" component={()=><HomeComponent carousel={this.props.carousel} explore={this.props.explore} />}></Route>
                     <Route exact path="/gallery" component={()=><GalleryComponent images={this.props.images}/>}></Route>
                     <Route exact path="/blog" component={()=><BlogComponent images={this.props.images} blogs={this.props.blogs.blogs} 
                     comments={this.props.comments.comments} addComment={this.props.addComment} />}></Route>
                     <Route exact path="/contact" component={()=><ContactComponent/>}/>
-                    <Redirect to="/"></Redirect>
+                    
                 </Switch>
                 <FooterComponent/>
             </div>
@@ -64,3 +64,4 @@ class MainComponent extends Component{
 }
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(MainComponent));
+//<Redirect to="/"></Redirect>
