@@ -9,26 +9,21 @@ import ModalComponent from "./ModalComponent";
     const [modalShow,setModalShow]=useState(false);
     const [modalImgUrl,setModalImgUrl]=useState("");
     const [modalCaption,setModalCaption]=useState("");
-    let newComment="";
+    let newComment=React.createRef();
 
-    //console.log(props.blogData.id)
     function handleSubmit(event){
-        if(newComment.length>0){
-            props.addComment(newComment,props.blogData.id);
+        //console.log(newComment.current.value);
+        if(newComment.current.value.length>0){
+            props.addComment(newComment.current.value,props.blogData.id);
         }
-        //console.log(props.blogData.id);
         alert("Comments won't be stored permenantly");
         event.preventDefault();
     }
 
 
-    function handleInputChange(event){
-        //console.log();
-        newComment=(event.target.value);
-    }
+
 
     function handleImageClick(imageID){
-        //console.log(imageID);
         const image=props.images.filter((image)=>image.id===imageID)[0];
         setModalImgUrl(image.url);
         setModalCaption(image.caption);
@@ -62,7 +57,6 @@ import ModalComponent from "./ModalComponent";
     });
 
     const Location=()=>{
-        console.log(props.blogData.location)
         if(props.blogData.location===""){
             return(
                 <div></div>
@@ -104,7 +98,7 @@ import ModalComponent from "./ModalComponent";
                      <Form onSubmit={handleSubmit}>
                      <Form.Group >
                      <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} className="mb-2"
-                      id="newComment" onChange={handleInputChange}/>
+                      id="newComment" ref={newComment}/>
                      </Form.Group>
                      <div className="d-flex flex-row-reverse ">
                      <Button variant="primary" type="submit" >

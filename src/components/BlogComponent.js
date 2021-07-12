@@ -6,7 +6,7 @@ class BlogComponent extends Component{
 
     componentDidMount(){
         document.title="Traveller Blog";
-        window.scrollTo(0, 0);
+        //window.scrollTo(0, 0);
     }
 
 
