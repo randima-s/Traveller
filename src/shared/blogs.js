@@ -15,7 +15,7 @@ export const BLOGS=[
     {
         id:2,
         title:"Ella ATV Bike ride",
-        desc:"An iconic experience of riding ADV bikes through breath taking views of ella. Somewhat advanterous activity while enjoying the vies. Maintined by 98 acres hotel. Very safe and professional guides",
+        desc:"An iconic experience of riding ADV bikes through breath taking views of ella. Somewhat advanterous activity while enjoying the views. Maintained by 98 acres hotel. Very safe and professional guides",
         location:""
     },
     {

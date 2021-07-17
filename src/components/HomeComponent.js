@@ -1,23 +1,15 @@
 import { Component } from "react";
 import CarouselComponent from "./CarouselComponent";
-import {HomeBodyComponent} from "./HomeBodyComponent";
-
+import { NavHashLink  as Link }  from "react-router-hash-link";
+import {baseURL} from "../shared/baseUrl";
 
 class HomeComponent extends Component{
 
     componentDidMount(){
         //this.props.fetchData();
-        document.title="Traveller Home"
-        window.addEventListener("scroll",this.handleScroll,true);
+        document.title="Traveller Home";
     }
 
-    componentWillUnmount(){
-        window.removeEventListener("scroll",this.handleScroll);
-    }
-
-    handleScroll=()=>{
-        //console.log(window.scrollY);
-    }
 
     render(){
 
@@ -29,22 +21,35 @@ class HomeComponent extends Component{
         );
 
         return(
-            <div className="container py-2  " onScroll={this.handleScroll}>
-                <div className="row ">
-                    <h1 className="col-md-7">
+            <div className="container py-2  " >
+                <div className="row m-0 ">
+                    <div className="col-md-7 p-0">
                     <CarouselComponent images={this.props.carousel}/>
-                    </h1>
-                    <div className=" col-md-5 ">
+                    </div>
+                    <div className=" col-md-5 bg-dark text-light">
                         <div className="d-flex p-4  align-items-center h-100">
                             {QuoteText}
                         </div>
                     </div>
                 </div>
-                <div style={{backgroundImage:"url('/assets/img/blog.jpg')",height:300,backgroundSize:'contain',backgroundRepeat:"no-repeat"}}>
-                    <h2 className="m-4 text-light text-end">Blog</h2>
-                    <p className="m-4 text-end text-light">"A visual blog of amazing places</p>
+                <Link to="/blog#top">
+                <div className="container aspect-ratio-box my-2 position-relative" style={{
+                    backgroundImage:`url('\\${baseURL}/assets/img/blog.jpg')`}}>
+                        <div className="aspect-ratio-box-inside">
+                            <h2 className="m-4 text-light text-end">Blog</h2>
+                            <p className="m-4 text-end text-light d-none d-sm-block">A visual blog of amazing places</p>
+                    </div>
                 </div>
-                <HomeBodyComponent cards={this.props.explore}/>
+                </Link>
+                <Link to="/gallery#top">
+                <div className="container aspect-ratio-box my-2 position-relative" style={{
+                    backgroundImage:`url('\\${baseURL}/assets/img/gallery.jpg')`}}>
+                        <div className="aspect-ratio-box-inside">
+                            <h2 className="m-4 text-light text-end">Gallery</h2>
+                            <p className="m-4 text-end text-light d-none d-sm-block">The collection of all photos</p>
+                    </div>
+                </div>
+                </Link>
             </div>
         );
     };

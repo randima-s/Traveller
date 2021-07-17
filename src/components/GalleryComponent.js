@@ -24,8 +24,10 @@ class GalleryComponent extends Component{
                 <li className="breadcrumb-item active">Gallery</li>
                 </ol>
                 </div>
-                <div className="row container-fluid p-4">
+                <div className="container">
+                <div className="row  justify-content-center">
                     {Items}
+                </div>
                 </div>
             </div>
         );

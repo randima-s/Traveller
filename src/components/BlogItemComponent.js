@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useRef} from "react";
 import {Form,Button} from "react-bootstrap";
 import ModalComponent from "./ModalComponent";
 
@@ -6,10 +6,16 @@ import ModalComponent from "./ModalComponent";
  function BlogItemComponent(props){
 
     //const [newComment,setNewComment]=useState("");
+    const featuredImg=props.images.filter((image)=>image.isFeatured===true)[0];
+
     const [modalShow,setModalShow]=useState(false);
     const [modalImgUrl,setModalImgUrl]=useState("");
     const [modalCaption,setModalCaption]=useState("");
+    const [selectedImage,setSelectedImage]=useState(featuredImg.url);
+
     let newComment=React.createRef();
+    const myRef= useRef(null);
+    
 
     function handleSubmit(event){
         //console.log(newComment.current.value);
@@ -25,9 +31,11 @@ import ModalComponent from "./ModalComponent";
 
     function handleImageClick(imageID){
         const image=props.images.filter((image)=>image.id===imageID)[0];
-        setModalImgUrl(image.url);
-        setModalCaption(image.caption);
-        setModalShow(true);
+        setSelectedImage(image.url);
+        window.scrollTo(0,myRef.current.offsetTop);
+        //setModalImgUrl(image.url);
+        //setModalCaption(image.caption);
+        //setModalShow(true);
     }
 
     function convertDate(date){
@@ -77,14 +85,15 @@ import ModalComponent from "./ModalComponent";
         }
     }
 
-    const featuredImg=props.images.filter((image)=>image.isFeatured===true)[0];
-
+    
+    
      return(
-         <div className="row justify-content-lg-center justify-content-md-center my-2 p-2" id={props.blogData.id}>
-         <div className="col col-lg-6 col-md-6 col-sm-12 bg-light border border-primary">
-             <h4 className="my-2">{props.blogData.title}</h4>
-             <img src={featuredImg.url} alt={featuredImg.caption} className="w-100 border border-dark" onClick={()=>handleImageClick(featuredImg.id)}></img>
-             <div className="row ">
+        <div className="row justify-content-lg-center justify-content-md-center my-2 p-2" id={props.blogData.id} ref={myRef}>
+         <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12 bg-dark text-light " >
+             <h4 className="my-2 text-center">{props.blogData.title}</h4>
+             <img src={selectedImage} alt={featuredImg.caption} className=" rounded px-2 mx-auto d-block" onClick={()=>handleImageClick(featuredImg.id)}
+             style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>
+             <div className="row px-2">
                  {miniImages}
              </div>
              <div>
@@ -108,8 +117,8 @@ import ModalComponent from "./ModalComponent";
                      </Form>
                  </div>
              </div>
-         </div>
          <div>
+        </div>
          <ModalComponent show={modalShow} modalHide={()=>setModalShow(false)}
            img={modalImgUrl} caption={modalCaption}/>
          </div>

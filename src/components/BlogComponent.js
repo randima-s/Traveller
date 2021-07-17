@@ -29,9 +29,17 @@ class BlogComponent extends Component{
                 <li className="breadcrumb-item active">Blog</li>
                 </ol>
                 </div>
+                <aside className="sidebar  ">
+                    <ul className="list-group ">
+                        <li className="list-group-item bg-dark "><Link className="text-light" to="/#top">Home</Link></li>
+                        <li className="list-group-item bg-dark text-light" onClick={()=>{window.scrollTo(0,0)}}>Top</li>
+                    </ul>
+                </aside>
+                <main>
                 <div >
-                    {Items}
+                {Items}
                 </div>
+                </main>
             </div>
         );
     };
