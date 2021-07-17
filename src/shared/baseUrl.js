@@ -1,2 +1,2 @@
-export const baseURL="\\Traveller";
-//export const baseURL="";
+//export const baseURL="\\Traveller";
+export const baseURL="";

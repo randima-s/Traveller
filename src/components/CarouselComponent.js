@@ -1,51 +1,20 @@
-//import {Component} from "react";
+
 import {Carousel} from "react-bootstrap";
-
-
-/*const RenderCarouselItem=({location})=>{
-    console.log("item rendered");
-    return(
-        <Carousel.Item key={location.id}>
-            <img
-            className="d-block w-100"
-            src={location.img}
-            alt={location.name}
-            />
-            <Carousel.Caption>
-            <h3>{location.name}</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-        </Carousel.Item>
-    );
-};
-
-const RenderCarousel=({locations})=>{
-    console.log("item Parent rendered");
-    const items=locations.map((locationx)=>{
-        return (
-                <RenderCarouselItem location={locationx}/>
-        );
-    });
-};*/
-
-
 
 function CarouselComponent(props) {
 
     const filteredLocations=props.images.filter((location)=>location.carousel===true);
-    //console.log(filteredLocations);
     const item=filteredLocations.map((location)=>{
-        //console.log("called");
         return(
             <Carousel.Item key={location.id}>
                 <img
-                className={"d-block w-100"}
+                className={"d-block w-100 rounded"}
                 src={location.image}
                 alt={location.name}
                 />
                 <Carousel.Caption>
                 <h3>{location.name}</h3>
-                <p>{location.description}</p>
+                <h5>{location.description}</h5>
                 </Carousel.Caption>
             </Carousel.Item>
         );

@@ -25,7 +25,7 @@ function HomeBodyComponent(props){
 
     return(
         <div className="container-fluid p-0 ">
-        <h2 className="border-primary py-2 ms-2 bg-light">Explore</h2>
+        <h2 className=" py-2 ms-2 ">Explore</h2>
         <div className="row my-2 justify-content-around ">
         {CardItem}
         </div>
