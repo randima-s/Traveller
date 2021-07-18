@@ -47,7 +47,7 @@ import ModalComponent from "./ModalComponent";
         const regExPatern=new RegExp("/(?!.*/.*)");
         //console.log(image.url.replace(regExPatern,"/small/"));
         return(
-            <div className="col col-lg-4 col-md-4 col-sm-6 p-2 d-flex " key={image.id}>
+            <div className="col col-lg-4 col-md-4 col-sm-6 p-2 d-flex mini-image" key={image.id} >
             
             <img src={image.url.replace(regExPatern,"/small/")} alt={image.caption} className="w-100 align-self-center border border-dark"
             onClick={()=>handleImageClick(image.id)}></img>
@@ -89,7 +89,7 @@ import ModalComponent from "./ModalComponent";
     
      return(
         <div className="row justify-content-lg-center justify-content-md-center my-2 p-2" id={props.blogData.id} ref={myRef}>
-         <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12 bg-dark text-light " >
+         <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12 blog-item text-light " >
              <h4 className="my-2 text-center">{props.blogData.title}</h4>
              <img src={selectedImage} alt={featuredImg.caption} className=" rounded px-2 mx-auto d-block" onClick={()=>handleImageClick(featuredImg.id)}
              style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>

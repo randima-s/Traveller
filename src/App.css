@@ -10,11 +10,7 @@ body{
 .bg-light-dark{
     background-color: #343a40;
 }
-/*
-.carousel-item>img{
-    height: 500px;
-    width: 100%;
-}*/
+
 a{
     color:black;
     text-decoration: none;
@@ -22,10 +18,6 @@ a{
 
 a:hover,a:active{
     text-decoration: underline;
-}
-
-#HomeCardImg{
-    opacity: 0.8;
 }
 
 .modal-custom{
@@ -38,6 +30,10 @@ a:hover,a:active{
     background-size: contain;
     background-repeat: no-repeat;
     padding-top: calc((300/1440)*100%);
+}
+.aspect-ratio-box:hover{
+    border: solid;
+    border-color: #6ea8fe;
 }
 
 .aspect-ratio-box-inside{
@@ -62,4 +58,24 @@ a:hover,a:active{
     .sidebar {
       visibility: hidden;
     }
+}
+
+.gallery-item:hover,.gallery-item:active{
+    background-color: #031633;
+    border:solid;
+    border-color: #084298;
+}
+.gallery-item{
+    background-color: #212529;
+}
+.mini-image:hover{
+    border: solid;
+    border-color: #6ea8fe
+}
+
+.blog-item{
+    background-color: #212529;
+}
+.blog-item:hover{
+    background-color: #343a40;
 }

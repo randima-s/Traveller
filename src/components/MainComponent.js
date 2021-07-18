@@ -55,7 +55,6 @@ class MainComponent extends Component{
                     <Route exact path="/blog" component={()=><BlogComponent images={this.props.images} blogs={this.props.blogs.blogs} 
                     comments={this.props.comments.comments} addComment={this.props.addComment} />}></Route>
                     <Route exact path="/contact" component={()=><ContactComponent/>}/>
-                    
                 </Switch>
                 <FooterComponent/>
             </div>
