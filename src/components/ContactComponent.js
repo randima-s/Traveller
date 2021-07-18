@@ -16,7 +16,7 @@ function ContactComponent(props){
                     <div className="col-md-2">
                         <img src={baseURL+"/assets/img/randima.jpg"} className="w-100 rounded" alt="Randima"/>
                     </div>
-                    <div className="col-md-6 position-relative">
+                    <div className="col-md-6">
                         <h4>Randima Senanayaka</h4>
                         <ol className="list-inline">
                             <li className="list-inline-item"><a href="mailto:rmsenanayake@gmail.com"><img src="https://img.icons8.com/fluent/48/000000/gmail.png"/><br/> Email</a></li>
@@ -32,7 +32,7 @@ function ContactComponent(props){
                                 </li>
                         </ol>
 
-                        <div className="position-absolute  bottom-0">
+                        <div >
                         <a className="fs-6 text-secondary" href="https://icons8.com/icon/ho8QlOYvMuG3/gmail">Gmail icon by Icons8</a>
                         <a className="fs-6 text-secondary" href="https://icons8.com/icon/uLWV5A9vXIPu/facebook">Facebook icon by Icons8</a>
                         <a className="fs-6 text-secondary" href="https://icons8.com/icon/Xy10Jcu1L2Su/instagram">Instagram icon by Icons8</a>

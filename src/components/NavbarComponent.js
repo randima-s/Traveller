@@ -22,10 +22,10 @@ class NavbarComponent extends Component{
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>this.ToggleClick(!this.state.NavbarExpanded)} />
                 <Navbar.Collapse id="responsive-navbar-nav"  >
                     <Nav className="ms-auto text-center">
-                    <Link to="/" className="nav-link" onSelect={()=>this.ToggleClick(false)}>Home</Link>
-                    <Link to="/blog" className="nav-link" onSelect={()=>this.ToggleClick(false)}>Blog</Link>
-                    <Link to="/gallery" className="nav-link" onSelect={()=>this.ToggleClick(false)}>Galley</Link>
-                    <Link to="/contact" className="nav-link" onSelect={()=>this.ToggleClick(false)}>Contact</Link>
+                    <Link to="/" className="nav-link" onClick={()=>this.ToggleClick(false)}>Home</Link>
+                    <Link to="/blog" className="nav-link" onClick={()=>this.ToggleClick(false)}>Blog</Link>
+                    <Link to="/gallery" className="nav-link" onClick={()=>this.ToggleClick(false)}>Galley</Link>
+                    <Link to="/contact" className="nav-link" onClick={()=>this.ToggleClick(false)}>Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
                 </div>
