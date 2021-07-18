@@ -57,7 +57,7 @@ import ModalComponent from "./ModalComponent";
 
     const Comments=props.comments.map((comment)=>{
         return(
-            <div className="shadow-sm p-2 mb-2 bg-body rounded text-wrap"  key={comment.id}>
+            <div className="shadow-sm p-2 mb-2 bg-light-dark rounded text-wrap"  key={comment.id}>
             {comment.comment}
             <p className="text-end p-0 m-0 text-secondary">{ convertDate(comment.date)}</p>
             </div>
@@ -107,10 +107,10 @@ import ModalComponent from "./ModalComponent";
                      <Form onSubmit={handleSubmit}>
                      <Form.Group >
                      <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} className="mb-2"
-                      id="newComment" ref={newComment}/>
+                      id="newComment" ref={newComment} className="bg-dark text-light"/>
                      </Form.Group>
-                     <div className="d-flex flex-row-reverse ">
-                     <Button variant="primary" type="submit" >
+                     <div className="d-flex flex-row-reverse mt-2">
+                     <Button variant="secondary" type="submit" >
                         Post
                     </Button>
                      </div>

@@ -23,10 +23,10 @@ class BlogComponent extends Component{
 
         return(
             <div>
-                <div className="container-fluid bg-light p-4">
-                <ol className="breadcrumb">
-                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                <li className="breadcrumb-item active">Blog</li>
+                <div className="container-fluid bg-light-dark p-4">
+                <ol className="breadcrumb ">
+                <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
+                <li className="breadcrumb-item active text-light">Blog</li>
                 </ol>
                 </div>
                 <aside className="sidebar  ">
