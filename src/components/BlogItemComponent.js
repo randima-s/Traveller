@@ -18,11 +18,9 @@ import ModalComponent from "./ModalComponent";
     
 
     function handleSubmit(event){
-        //console.log(newComment.current.value);
         if(newComment.current.value.length>0){
-            props.addComment(newComment.current.value,props.blogData.id);
+            props.addComment(newComment.current.value,props.comments.length,props.blogData.id);
         }
-        alert("Comments won't be stored permenantly");
         event.preventDefault();
     }
 
@@ -33,9 +31,6 @@ import ModalComponent from "./ModalComponent";
         const image=props.images.filter((image)=>image.id===imageID)[0];
         setSelectedImage(image.url);
         window.scrollTo(0,myRef.current.offsetTop);
-        //setModalImgUrl(image.url);
-        //setModalCaption(image.caption);
-        //setModalShow(true);
     }
 
     function convertDate(date){
@@ -45,7 +40,6 @@ import ModalComponent from "./ModalComponent";
 
     const miniImages=props.images.map((image)=>{
         const regExPatern=new RegExp("/(?!.*/.*)");
-        //console.log(image.url.replace(regExPatern,"/small/"));
         return(
             <div className="col col-lg-4 col-md-4 col-sm-6 p-2 d-flex mini-image" key={image.id} >
             

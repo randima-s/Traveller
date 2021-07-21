@@ -8,6 +8,8 @@ export const Comments=(state={comments:[]},action)=>{
             comment.id=state.comments.length;
             comment.date=new Date().toISOString();
             return {...state,comments:state.comments.concat(comment)};
+        case ActionTypes.LOAD_COMMENTS:
+            return {...state,comments:action.payload};
         default:
             return state;
     }

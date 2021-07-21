@@ -12,6 +12,7 @@ import {connect} from "react-redux";
 
 import { addComment,fetchComments ,fetchBlogs,fetchHome,fetchImages} from '../redux/ActionCreators';
 
+import { readComments } from "../firebase/firebase";
 
 const mapStateToProps = state => {
     return {
@@ -24,11 +25,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps=dispatch=>({
-    addComment:(comment,postId)=>dispatch(addComment(comment,postId)),
+    addComment:(comment,id,postId)=>dispatch(addComment(comment,id,postId)),
     fetchComments:()=>dispatch(fetchComments()),
     fetchBlogs:()=>dispatch(fetchBlogs()),
     fetchHome:()=>dispatch(fetchHome()),
-    fetchImages:()=>dispatch(fetchImages())
+    fetchImages:()=>dispatch(fetchImages()),
+    //fetchCarousel:()=>dispatch(fetchCarousel())
 })
 
 class MainComponent extends Component{
@@ -39,7 +41,9 @@ class MainComponent extends Component{
         this.props.fetchComments();
         this.props.fetchBlogs();
         this.props.fetchImages();
+        //this.props.fetchCarousel();
         console.log("fetched");
+        //readComments();
     }
 
     render(){
