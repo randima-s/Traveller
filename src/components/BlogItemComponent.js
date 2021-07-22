@@ -51,7 +51,7 @@ import {Form,Button} from "react-bootstrap";
 
     const Comments=props.comments.map((comment)=>{
         return(
-            <div className="shadow-sm p-2 mb-2 bg-light-dark rounded text-wrap"  key={comment.id}>
+            <div className="shadow-sm p-2 mb-2 blog-comment rounded text-wrap"  key={comment.id}>
             {comment.comment}
             <p className="text-end p-0 m-0 text-secondary">{ convertDate(comment.date)}</p>
             </div>

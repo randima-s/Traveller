@@ -111,3 +111,13 @@ a:hover,a:active{
 .home-link:active{
     background-color: #084298;
 }
+
+.blog-comment{
+    background-color: #343a40;
+}
+
+.blog-comment:hover{
+    background-color: #5a5e61;
+    border: solid white;
+    border-width: 0.1rem;
+}
