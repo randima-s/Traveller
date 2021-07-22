@@ -23,18 +23,19 @@ class BlogComponent extends Component{
 
         return(
             <div>
-                <div className="container-fluid bg-light-dark p-4">
+                <div className="container bg-black p-4">
                 <ol className="breadcrumb ">
                 <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
                 <li className="breadcrumb-item active text-light">Blog</li>
                 </ol>
-                </div>
                 <aside className="sidebar  ">
                     <ul className="list-group ">
                         <li className="list-group-item bg-dark "><Link className="text-light" to="/#top">Home</Link></li>
                         <li className="list-group-item bg-dark text-light" onClick={()=>{window.scrollTo(0,0)}}>Top</li>
                     </ul>
                 </aside>
+                </div>
+                
                 <main>
                 <div >
                 {Items}

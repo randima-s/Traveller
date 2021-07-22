@@ -1,12 +1,10 @@
 import { Component } from "react";
-import CarouselComponent from "./CarouselComponent";
 import { NavHashLink  as Link }  from "react-router-hash-link";
 import {baseURL} from "../shared/baseUrl";
 
 class HomeComponent extends Component{
 
     componentDidMount(){
-        //this.props.fetchData();
         document.title="Traveller Home";
     }
 
@@ -16,41 +14,35 @@ class HomeComponent extends Component{
         const QuoteText=(
             <div >
                 <h2 className="fst-italic">“The world is a book and those who do not travel read only one page.”</h2>
-                <p className="text-end">Saint Augustine</p>
+                <p className="text-end text-secondary">Saint Augustine</p>
             </div>
         );
 
         return(
-            <div className="container py-2  " >
-                <div className="row m-0 ">
-                    <div className="col-md-7 p-0">
-                    <CarouselComponent images={this.props.carousel}/>
+            <div className="home-div container   d-flex" >
+                <div className="row  ">
+                    <div className="col-md-7 p-0  align-self-center">
+                        <div className="  p-2  align-items-center h-100 ">
+                        <img src={baseURL+"/assets/img/cover.png"} alt="cover" className="w-100"/>
+                        </div>
                     </div>
-                    <div className=" col-md-5 bg-dark text-light">
-                        <div className="d-flex p-4  align-items-center h-100">
+                    <div className=" col-md-5  text-light d-flex align-self-center">
+                        <div className=" p-4  align-items-center h-100">
                             {QuoteText}
+                            <br/>
+                            <Link to="/blog#top">
+                            <p className="home-link mx-auto">Blog</p>
+                            </Link>
+                            <Link  to="/gallery#top">
+                            <p className="home-link mx-auto">Gallery</p>
+                            </Link>
                         </div>
                     </div>
                 </div>
-                <Link to="/blog#top">
-                <div className="container aspect-ratio-box my-2 position-relative" style={{
-                    backgroundImage:`url('\\${baseURL}/assets/img/blog.jpg')`}}>
-                        <div className="aspect-ratio-box-inside">
-                            <h2 className="m-4 text-light text-end">Blog</h2>
-                            <p className="m-4 text-end text-light d-none d-sm-block">A visual blog of amazing places</p>
-                    </div>
-                </div>
-                </Link>
-                <Link to="/gallery#top">
-                <div className="container aspect-ratio-box my-2 position-relative" style={{
-                    backgroundImage:`url('\\${baseURL}/assets/img/gallery.jpg')`}}>
-                        <div className="aspect-ratio-box-inside">
-                            <h2 className="m-4 text-light text-end">Gallery</h2>
-                            <p className="m-4 text-end text-light d-none d-sm-block">The collection of all photos</p>
-                    </div>
-                </div>
-                </Link>
+                
             </div>
+            
+            
         );
     };
     

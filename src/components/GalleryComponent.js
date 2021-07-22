@@ -18,7 +18,7 @@ class GalleryComponent extends Component{
 
         return (
             <div>
-                <div className="container-fluid bg-light-dark p-4">
+                <div className="container-fluid bg-black p-4">
                 <ol className="breadcrumb">
                 <li className="breadcrumb-item"><Link className="text-light" to="/">Home</Link></li>
                 <li className="breadcrumb-item active text-light">Gallery</li>

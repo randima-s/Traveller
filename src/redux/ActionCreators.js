@@ -2,13 +2,10 @@ import * as ActionTypes from "./ActionTypes";
 
 //import {COMMENTS} from "../shared/comments";
 import {BLOGS} from "../shared/blogs";
-import {EXPLORE} from "../shared/explore";
-//import {CAROUSELDATA} from "../shared/carouseldata";
 import {IMAGES} from "../shared/images";
 
 import {baseURL} from "../shared/baseUrl";
 
-//import {readComments,postComment,loadCarousel} from "../firebase/firebase";
 
 ////firebase
 import firebase from "firebase/app";
@@ -56,8 +53,7 @@ export const loadComments=comments=>{
 }
 
 export const addComment=(comment,id,postId)=>dispatch=>{
-    let date=new Date();
-
+    
     const newComment={
         id:id,
         postId:postId,
@@ -91,19 +87,7 @@ export const fetchBlogs=()=>{
     });
 }
 
-export const fetchHome=()=>(dispatch)=>{
-    dispatch(fetchExplore());
-    dispatch(fetchCarousel());
-}
-
-export const fetchExplore=()=>{
-    return({
-        type:ActionTypes.LOAD_EXPLORE,
-        baseURL:baseURL,
-        payload:EXPLORE
-    });
-}
-
+/*
 export const fetchCarousel=()=>dispatch=>{
 
     const carousel=[];
@@ -134,7 +118,7 @@ export const addCarousel=carousel=>{
         payload:carousel
     });
 }
-
+*/
 export const fetchImages=()=>{
     return({
         type:ActionTypes.LOAD_IMAGES,

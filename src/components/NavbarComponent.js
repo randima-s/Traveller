@@ -1,6 +1,7 @@
 import { Component } from "react";
 import {Navbar,Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import {baseURL} from "../shared/baseUrl";
 
 class NavbarComponent extends Component{
     constructor(props){
@@ -16,9 +17,9 @@ class NavbarComponent extends Component{
 
     render(){
         return(
-            <Navbar bg="dark" expand="lg" variant="dark" expanded={this.state.NavbarExpanded}>
-                <div className="container-fluid ">
-                <Link to="/" className="navbar-brand">Traveller</Link>
+            <Navbar style={{backgroundColor:"black"}} expand="lg" variant="dark" expanded={this.state.NavbarExpanded}>
+                <div className="container ">
+                <Link to="/" className="navbar-brand" ><img src={baseURL+"/assets/img/logo.png"} alt="Traveller"/></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>this.ToggleClick(!this.state.NavbarExpanded)} />
                 <Navbar.Collapse id="responsive-navbar-nav"  >
                     <Nav className="ms-auto text-center">

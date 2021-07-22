@@ -1,6 +1,6 @@
 import React,{useState,useRef} from "react";
 import {Form,Button} from "react-bootstrap";
-import ModalComponent from "./ModalComponent";
+//import ModalComponent from "./ModalComponent";
 
 
  function BlogItemComponent(props){
@@ -8,9 +8,9 @@ import ModalComponent from "./ModalComponent";
     //const [newComment,setNewComment]=useState("");
     const featuredImg=props.images.filter((image)=>image.isFeatured===true)[0];
 
-    const [modalShow,setModalShow]=useState(false);
-    const [modalImgUrl,setModalImgUrl]=useState("");
-    const [modalCaption,setModalCaption]=useState("");
+    //const [modalShow,setModalShow]=useState(false);
+    //const [modalImgUrl,setModalImgUrl]=useState("");
+    //const [modalCaption,setModalCaption]=useState("");
     const [selectedImage,setSelectedImage]=useState(featuredImg.url);
 
     let newComment=React.createRef();
@@ -100,8 +100,8 @@ import ModalComponent from "./ModalComponent";
                  <div className="mb-2">
                      <Form onSubmit={handleSubmit}>
                      <Form.Group >
-                     <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} className="mb-2"
-                      id="newComment" ref={newComment} className="bg-dark text-light"/>
+                     <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} 
+                      id="newComment" ref={newComment} className="bg-dark text-light mb-2"/>
                      </Form.Group>
                      <div className="d-flex flex-row-reverse mt-2">
                      <Button variant="secondary" type="submit" >
@@ -113,11 +113,13 @@ import ModalComponent from "./ModalComponent";
              </div>
          <div>
         </div>
-         <ModalComponent show={modalShow} modalHide={()=>setModalShow(false)}
-           img={modalImgUrl} caption={modalCaption}/>
+         
          </div>
          </div>
      );
  }
 
  export default BlogItemComponent;
+
+ //<ModalComponent show={modalShow} modalHide={()=>setModalShow(false)}
+ //          img={modalImgUrl} caption={modalCaption}/>
