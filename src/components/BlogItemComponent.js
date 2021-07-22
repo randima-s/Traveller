@@ -82,8 +82,8 @@ import {Form,Button} from "react-bootstrap";
     
     
      return(
-        <div className="row justify-content-lg-center justify-content-md-center my-2 p-2" id={props.blogData.id} ref={myRef}>
-         <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12 blog-item text-light " >
+        
+         <div className="my-4 p-2 blog-item" id={props.blogData.id} ref={myRef} >
              <h4 className="my-2 text-center">{props.blogData.title}</h4>
              <img src={selectedImage} alt={featuredImg.caption} className=" rounded px-2 mx-auto d-block" onClick={()=>handleImageClick(featuredImg.id)}
              style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>
@@ -114,7 +114,6 @@ import {Form,Button} from "react-bootstrap";
          <div>
         </div>
          
-         </div>
          </div>
      );
  }

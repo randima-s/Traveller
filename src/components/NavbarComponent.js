@@ -17,7 +17,7 @@ class NavbarComponent extends Component{
 
     render(){
         return(
-            <Navbar style={{backgroundColor:"black"}} expand="lg" variant="dark" expanded={this.state.NavbarExpanded}>
+            <Navbar style={{backgroundColor:"black"}} expand="lg" variant="dark" expanded={this.state.NavbarExpanded} >
                 <div className="container ">
                 <Link to="/" className="navbar-brand" ><img src={baseURL+"/assets/img/logo.png"} alt="Traveller"/></Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>this.ToggleClick(!this.state.NavbarExpanded)} />
