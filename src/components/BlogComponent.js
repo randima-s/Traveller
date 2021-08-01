@@ -21,6 +21,14 @@ class BlogComponent extends Component{
             addComment={this.props.addComment}/>
         }));
 
+        const newBlog=(
+            <div  className="my-4 p-2 blog-item rounded ">
+                <Link to="/newblog">
+                <span >Create New Blog</span>
+                </Link>
+            </div>
+        );
+
         return(
             <div >
                 
@@ -44,6 +52,7 @@ class BlogComponent extends Component{
                     </ul>
                 </div>
                 {Items}
+                {newBlog}
                 </div>
                 </div>
                 </div>

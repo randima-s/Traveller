@@ -130,3 +130,9 @@ a:hover,a:active{
     border: solid white;
     border-width: 0.1rem;
 }
+
+.plus-sign{
+    width: 3rem;
+    background-color: #052c65;
+    border-radius: 50%;
+}
