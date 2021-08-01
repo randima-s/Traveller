@@ -78,11 +78,20 @@ a:hover,a:active{
     border-color: #6ea8fe
 }
 
+
 .blog-item{
     background-color: #212529;
 }
 .blog-item:hover{
     background-color: #292c30;
+}
+.blog-new-image{
+    color: white;
+    min-height: 5rem;
+}
+.blog-new-image:hover{
+    font-size: 120%;
+    cursor: pointer;
 }
 
 .home-div{

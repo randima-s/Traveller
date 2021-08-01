@@ -1,29 +1,15 @@
 import * as ActionTypes from "./ActionTypes";
 
-//import {COMMENTS} from "../shared/comments";
 import {BLOGS} from "../shared/blogs";
 import {IMAGES} from "../shared/images";
-
 import {baseURL} from "../shared/baseUrl";
 
-
-////firebase
+//firebase
+import {db,timeStamp} from "../firebase/firebase";
 import firebase from "firebase/app";
-import "firebase/firestore";
 
-import "firebase/analytics";
-
-import { firebaseConfig } from "../firebase/config";
-
-if(!firebase.apps.length){
-    firebase.initializeApp(firebaseConfig);
-}
-else{
-    firebase.app();
-}
-
-var db = firebase.firestore();
-//////
+//////////////////////////////////////////////////////////
+//Comments
 
 export const fetchComments=()=>dispatch=>{
     const comments=[];
@@ -80,12 +66,84 @@ export const updateComments=(comment)=>{
     });
 }
 
-export const fetchBlogs=()=>{
+/*export const loadComments=comments=>{
+    return({
+        type:ActionTypes.LOAD_COMMENTS,
+        payload:comments
+    });
+}*/
+
+
+/////////////////////////////////////////////////////////////
+//Blogs
+
+export const fetchBlogs=()=>dispatch=>{
+    const blogs=[];
+    db.collection("blogs").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            blogs.push({
+                ...doc.data(),
+                id:doc.id
+            })
+        });
+        dispatch(loadBlogs(blogs));
+    })
+    .catch(error=>{
+        console.log("Error: "+error);
+    })
+}
+
+export const loadBlogs=(blogs)=>{
     return({
         type:ActionTypes.LOAD_BLOGS,
-        payload:BLOGS
+        payload:blogs
     });
 }
+
+export const updateBlogs=(blog)=>{
+    return({
+        type:ActionTypes.ADD_BLOG,
+        payload:blog
+    });
+}
+/////////////////////////////////
+//Images
+
+export const fetchImages=()=>dispatch=>{
+    const images=[];
+    db.collection("images").get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+            images.push({
+                ...doc.data(),
+                id:doc.id
+            })
+        });
+        dispatch(loadImages(images));
+    })
+    .catch(error=>{
+        console.log("Error: "+error);
+    })
+}
+
+export const loadImages=(images)=>{
+    return({
+        type:ActionTypes.LOAD_IMAGES,
+        payload:images
+    });
+}
+
+export const addImage=(image)=>{
+    return({
+        type:ActionTypes.ADD_IMAGE,
+        payload:image
+    });
+}
+
+
 
 /*
 export const fetchCarousel=()=>dispatch=>{
@@ -119,10 +177,3 @@ export const addCarousel=carousel=>{
     });
 }
 */
-export const fetchImages=()=>{
-    return({
-        type:ActionTypes.LOAD_IMAGES,
-        baseURL:baseURL,
-        payload:IMAGES
-    });
-}

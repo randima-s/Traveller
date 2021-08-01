@@ -4,11 +4,13 @@ import HomeComponent from "./HomeComponent";
 import GalleryComponent from "./GalleryComponent";
 import BlogComponent from "./BlogComponent";
 import ContactComponent from "./ContactComponent";
+import UploadComponent from "./UploadComponent";
+import NewBlogComponent from "./NewBlogComponent";
 
-import {Switch,Route,withRouter} from "react-router-dom";
+import {Switch,Route,withRouter,useParams} from "react-router-dom";
 import {connect} from "react-redux";
 
-import { addComment,fetchComments ,fetchBlogs,fetchImages} from '../redux/ActionCreators';
+import { addComment,fetchComments ,fetchBlogs,fetchImages,updateBlogs,addImage} from '../redux/ActionCreators';
 
 
 const mapStateToProps = state => {
@@ -26,6 +28,8 @@ const mapDispatchToProps=dispatch=>({
     fetchComments:()=>dispatch(fetchComments()),
     fetchBlogs:()=>dispatch(fetchBlogs()),
     fetchImages:()=>dispatch(fetchImages()),
+    addImage:(image)=>dispatch(addImage(image)),
+    updateBlogs:(newBlog)=>dispatch(updateBlogs(newBlog))
 })
 
 class MainComponent extends Component{
@@ -40,6 +44,15 @@ class MainComponent extends Component{
 
     render(){
         //console.log("Main rendered");
+
+        const UploadImages=({match})=>{
+            const blogId=match.params.id;
+            return(<UploadComponent blogId={blogId} 
+                blogData={this.props.blogs.blogs.filter((blog)=>blog.id===blogId)}
+                images={this.props.images.filter((image)=>image.blogId===blogId)}
+                addImage={this.props.addImage}/>);
+        }
+
         return(
             <div>
                 <NavbarComponent/>
@@ -50,6 +63,8 @@ class MainComponent extends Component{
                     <Route exact path="/blog" component={()=><BlogComponent images={this.props.images} blogs={this.props.blogs.blogs} 
                     comments={this.props.comments.comments} addComment={this.props.addComment} />}></Route>
                     <Route exact path="/contact" component={()=><ContactComponent/>}/>
+                    <Route exact path="/newblog" component={()=><NewBlogComponent updateBlogs={this.props.updateBlogs}/>}/>
+                    <Route  path="/upload:id" component={UploadImages}/>
                 </Switch>
                 
             </div>

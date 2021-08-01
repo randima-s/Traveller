@@ -16,7 +16,7 @@ class BlogComponent extends Component{
             return <BlogItemComponent 
             key={blog.id}
             blogData={blog}
-            images={this.props.images.filter((image)=>image.postId===blog.id)}
+            images={this.props.images.filter((image)=>image.blogId===blog.id)}
             comments={this.props.comments.filter((comment)=>comment.postId===blog.id)}
             addComment={this.props.addComment}/>
         }));

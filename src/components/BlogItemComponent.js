@@ -1,12 +1,13 @@
 import React,{useState,useRef} from "react";
 import {Form,Button} from "react-bootstrap";
+import { NavHashLink  as Link }  from "react-router-hash-link";
 //import ModalComponent from "./ModalComponent";
 
 
  function BlogItemComponent(props){
 
     //const [newComment,setNewComment]=useState("");
-    const featuredImg=props.images.filter((image)=>image.isFeatured===true)[0];
+    const featuredImg=props.images[0]||{caption:"",id:""};//props.images.filter((image)=>image.isFeatured===true)[0];
 
     //const [modalShow,setModalShow]=useState(false);
     //const [modalImgUrl,setModalImgUrl]=useState("");
@@ -39,15 +40,25 @@ import {Form,Button} from "react-bootstrap";
     }
 
     const miniImages=props.images.map((image)=>{
-        const regExPatern=new RegExp("/(?!.*/.*)");
+        //const regExPatern=new RegExp("/(?!.*/.*)");
         return(
             <div className="col col-lg-4 col-md-4 col-sm-6 p-2 d-flex mini-image" key={image.id} >
-            
-            <img src={image.url.replace(regExPatern,"/small/")} alt={image.caption} className="w-100 align-self-center border border-dark"
+            <img src={image.url} alt={image.caption} className="w-100 align-self-center border border-dark"
             onClick={()=>handleImageClick(image.id)}></img>
             </div>
         );
     });
+
+    const addImage=(
+            <div className="col col-lg-4 col-md-4 col-sm-6 p-2 text-light position-relative blog-new-image" key={"new_image"} >
+                <Link to={"/upload"+props.blogData.id}>
+                <div className=" position-absolute top-50 start-50 translate-middle">
+                    <p className=" text-center fs-5">+ Image</p>
+                </div>
+                </Link>
+            </div>
+        );
+   
 
     const Comments=props.comments.map((comment)=>{
         return(
@@ -58,7 +69,7 @@ import {Form,Button} from "react-bootstrap";
         );
     });
 
-    const Location=()=>{
+    /*const Location=()=>{
         if(props.blogData.location===""){
             return(
                 <div></div>
@@ -77,7 +88,7 @@ import {Form,Button} from "react-bootstrap";
                 </div>
             );
         }
-    }
+    }*/
 
     
     
@@ -89,11 +100,12 @@ import {Form,Button} from "react-bootstrap";
              style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>
              <div className="row px-2">
                  {miniImages}
+                 {addImage}
              </div>
              <div>
                  {props.blogData.desc} 
              </div>
-              <Location />
+             
              <div>
                  <hr></hr>
                  {Comments}
