@@ -1,4 +1,4 @@
-import react, { useEffect, useRef, useState } from "react";
+import  { useEffect, useState } from "react";
 import useStorage from "../firebase/useStorage";
 import ProgressBarComponent from "./ProgressBarComponent";
 
@@ -10,6 +10,7 @@ function UploadComponent(props){
     const [imageList,setImageList]=useState([]);
     console.log(progress,url,uploadError)
 
+
     useEffect(()=>{
         document.title="Upload Images";
         setImageList(props.images);
@@ -17,11 +18,6 @@ function UploadComponent(props){
 
     useEffect(()=>{
         if(url){
-            const newimage={
-                caption:file.name,
-                blogId:props.blogId,
-
-            };
             setFile(null);
         }
     },[url]);
@@ -48,7 +44,7 @@ function UploadComponent(props){
         return(
             <div key={image.id} className="col-lg-3 col-md-4 col-sm-6 col-12"> 
             <div className="m-2">
-                <img src={image.url} alr={image.caption} className="w-100"/>
+                <img src={image.url} alt={image.caption} className="w-100"/>
             </div>
             </div>
         );

@@ -5,7 +5,7 @@ import * as ActionTypes from "./ActionTypes";
 //import {baseURL} from "../shared/baseUrl";
 
 //firebase
-import {db,timeStamp} from "../firebase/firebase";
+import {db} from "../firebase/firebase";
 import firebase from "firebase/app";
 
 //////////////////////////////////////////////////////////
