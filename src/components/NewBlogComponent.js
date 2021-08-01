@@ -6,12 +6,14 @@ function NewBlogComponent(props){
 
     const blogName=useRef(null);
     const blogDesc=useRef(null);
+    const [error,setError]=useState(null);
     const history = useHistory();
 
     const handleSubmit= (e)=>{
         if(blogName.current.value){
-            console.log(blogName.current.value);
-            console.log(blogDesc.current.value);
+            //console.log(blogName.current.value);
+            //console.log(blogDesc.current.value);
+            setError(null);
 
             const newBlog={
                 title:blogName.current.value,
@@ -37,6 +39,9 @@ function NewBlogComponent(props){
             //const blogID=await props.addBlog(blogName.current.value,blogDesc.current.value);
             //console.log(blogID);
         }
+        else{
+            setError("Name cant be empty");
+        }
         //history.push("/");
         e.preventDefault();
     }
@@ -50,7 +55,9 @@ function NewBlogComponent(props){
                         <label className="col-form-label">Blog Name</label>
                     </div>
                     <div className="col-sm-5">
-                        <input type="text" ref={blogName} id="blogName" className="form-control" />
+                        <input type="text" ref={blogName} id="blogName" className="form-control bg-dark text-light" />
+                        
+                    {error && <div className="  text-danger">{error}</div>}
                     </div>
                 </div>
                 <div className="row mb-2">
@@ -58,7 +65,7 @@ function NewBlogComponent(props){
                         <label className="col-form-label">Content</label>
                     </div>
                     <div className="col-sm-10">
-                        <textarea type="text" ref={blogDesc} id="blogName" className="form-control" rows={5} />
+                        <textarea type="text" ref={blogDesc} id="blogName" className="form-control bg-dark text-light" rows={5} />
                     </div>
                 </div>
                 <div className="row justify-content-end">

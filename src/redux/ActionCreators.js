@@ -1,8 +1,8 @@
 import * as ActionTypes from "./ActionTypes";
 
-import {BLOGS} from "../shared/blogs";
-import {IMAGES} from "../shared/images";
-import {baseURL} from "../shared/baseUrl";
+//import {BLOGS} from "../shared/blogs";
+//import {IMAGES} from "../shared/images";
+//import {baseURL} from "../shared/baseUrl";
 
 //firebase
 import {db,timeStamp} from "../firebase/firebase";

@@ -53,12 +53,15 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
             <div className="col col-lg-4 col-md-4 col-sm-6 p-2 text-light position-relative blog-new-image" key={"new_image"} >
                 <Link to={"/upload"+props.blogData.id}>
                 <div className=" position-absolute top-50 start-50 translate-middle">
-                    <p className=" text-center fs-5">+ Image</p>
+                    <div className="plus-sign fs-2 text-center">+</div>
+                    <p className=" text-center fs-5">Image</p>
                 </div>
                 </Link>
             </div>
         );
    
+        
+
 
     const Comments=props.comments.map((comment)=>{
         return(

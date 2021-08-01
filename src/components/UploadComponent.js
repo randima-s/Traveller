@@ -64,11 +64,11 @@ function UploadComponent(props){
                     {props.blogData[0].desc}
                 </div>
             </div>
-            <div className="row justify-content-center w-100 my-4">
+            <div className="row justify-content-center w-100 mx-0 my-4">
             <form  className="col-sm-1" >
-                <label className="bg-primary rounded  text-center fs-2 mb-2 w-100">
+                <label className=" fs-2 mb-2 w-100 d-flex justify-content-center">
                     <input type="file" onChange={changeHandler} style={{display:"none"}}/>
-                    <p className=" w-100" > + </p>
+                    <div className="plus-sign fs-2 text-center ">+</div>
                 </label>
             </form>
             <div >
@@ -88,3 +88,9 @@ function UploadComponent(props){
 
 export default UploadComponent;
 
+/*                <label className="bg-primary rounded  text-center fs-2 mb-2 w-100">
+                    <input type="file" onChange={changeHandler} style={{display:"none"}}/>
+                    <div className="plus-sign"></div>
+                    <p className=" w-100" > + </p>
+                </label>
+                */

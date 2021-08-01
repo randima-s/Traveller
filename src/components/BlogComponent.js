@@ -22,9 +22,11 @@ class BlogComponent extends Component{
         }));
 
         const newBlog=(
-            <div  className="my-4 p-2 blog-item rounded ">
-                <Link to="/newblog">
-                <span >Create New Blog</span>
+            <div  className="row mx-0 my-4 p-2 blog-item rounded justify-content-center ">
+                
+                <div className=" col-auto plus-sign fs-2 text-center"><Link to="/newblog" >+</Link></div>
+                <Link to="/newblog" >
+                <p className="text-center mt-2" >Create New Blog</p>
                 </Link>
             </div>
         );
