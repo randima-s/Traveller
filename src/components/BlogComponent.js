@@ -12,7 +12,7 @@ class BlogComponent extends Component{
 
         if(this.props.isBlogLoading || this.props.isImagesLoading){
             return(
-                <div className="text-light text-center">
+                <div className="text-dark text-center">
                     <div className="spinner-border text-primary" role="status">
                     </div>
                     <br/>
@@ -49,16 +49,16 @@ class BlogComponent extends Component{
             return(
                 <div >
                     
-                    <div className="container bg-black p-4 position-relative">
+                    <div className="container p-4 position-relative">
                         <ol className="breadcrumb ">
-                            <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
-                            <li className="breadcrumb-item active text-light">Blog</li>
+                            <li className="breadcrumb-item" ><Link to="/" className="text-dark">Home</Link></li>
+                            <li className="breadcrumb-item active text-dark">Blog</li>
                         </ol>
                     </div>
                     
                     <div >
                         <div className="row justify-content-lg-center justify-content-md-center " >
-                            <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12  text-light position-relative">
+                            <div className="col col-xl-4 col-lg-5 col-md-6 col-sm-12 dark position-relative">
                                 <div className="sidebar  ">
                                     <ul className="list-group list-group-horizontal ">
                                         <li className="list-group-item bg-dark "><Link className="text-light" to="/#top">Home</Link></li>

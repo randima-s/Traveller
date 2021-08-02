@@ -43,13 +43,13 @@ function NewBlogComponent(props){
     }
 
     return(
-        <div className="container text-light">
+        <div className="container text-dark">
 
-            <div className="container bg-black p-4 position-relative">
+            <div className="container p-4 position-relative">
                 <ol className="breadcrumb ">
-                    <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
-                    <li className="breadcrumb-item" ><Link to="/blog" className="text-light">Blog</Link></li>
-                    <li className="breadcrumb-item active text-light">New Blog</li>
+                    <li className="breadcrumb-item" ><Link to="/" className="text-dark">Home</Link></li>
+                    <li className="breadcrumb-item" ><Link to="/blog" className="text-dark">Blog</Link></li>
+                    <li className="breadcrumb-item active text-dark">New Blog</li>
                 </ol>
             </div>
 
@@ -60,7 +60,7 @@ function NewBlogComponent(props){
                         <label className="col-form-label">Blog Name</label>
                     </div>
                     <div className="col-sm-5">
-                        <input type="text" ref={blogName} id="blogName" className="form-control bg-dark text-light" />
+                        <input type="text" ref={blogName} id="blogName" className="form-control  text-dark" />
                         {error && <div className="  text-danger">{error}</div>}
                     </div>
                 </div>
@@ -69,7 +69,7 @@ function NewBlogComponent(props){
                         <label className="col-form-label">Content</label>
                     </div>
                     <div className="col-sm-10">
-                        <textarea type="text" ref={blogDesc} id="blogName" className="form-control bg-dark text-light" rows={7} />
+                        <textarea type="text" ref={blogDesc} id="blogName" className="form-control  text-dark" rows={7} />
                     </div>
                 </div>
                 <div className="row justify-content-end">

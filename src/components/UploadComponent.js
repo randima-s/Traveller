@@ -51,12 +51,12 @@ function UploadComponent(props){
 
 
     return(
-        <div className="container text-light">
-            <div className="container bg-black p-4 position-relative">
+        <div className="container text-dark">
+            <div className="container p-4 position-relative">
                 <ol className="breadcrumb ">
-                    <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
-                    <li className="breadcrumb-item" ><Link to="/blog" className="text-light">Blog</Link></li>
-                    <li className="breadcrumb-item active text-light">{props.blogData[0].title}</li>
+                    <li className="breadcrumb-item" ><Link to="/" >Home</Link></li>
+                    <li className="breadcrumb-item" ><Link to="/blog" >Blog</Link></li>
+                    <li className="breadcrumb-item active ">{props.blogData[0].title}</li>
                 </ol>
             </div>
             <h1 className="text-center">{props.blogData[0].title}</h1>
@@ -77,7 +77,7 @@ function UploadComponent(props){
                 {file && <ProgressBarComponent progress={progress}/>}
             </div>
             </div>
-            <div className="row bg-dark">
+            <div className="row ">
                 {imageGrid}
             </div>
         </div>

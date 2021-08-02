@@ -4,16 +4,16 @@
 }
 
 body{
-    background-color: black;
+    background-color: white;
 }
 
 a{
-    color:white;
+    color:black;
     text-decoration: none;
 }
 
 a:hover,a:active{
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
@@ -31,47 +31,40 @@ a:hover,a:active{
     height: 100vh;
 }
 
-.gallery-item:hover,.gallery-item:active{
-    background-color: black;
-    border:solid;
-    border-color: white;
-}
 .gallery-item{
-    background-color: #212529;
+    background-color: transparent;
+}
+.gallery-item:hover,.gallery-item:active{
+    box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.66)
 }
 
 .mini-image:hover{
-    background-color:black ;
+    background-color:white ;
     border: solid;
     border-color: white;
 }
 
 /*Blog*/
 .blog-item{
-    background-color: #212529;
+    background-color: white;
 }
 .blog-item:hover{
-    background-color: #292c30;
+    background-color: #f1fcff;
 }
 .blog-new-image{
-    background-color: #191b1d;
     min-height: 7rem;
 }
 .blog-new-image:hover{
-    border: solid white;
+    background-color: white;
 }
-.home-link:active{
-    background-color: #084298;
-}
-
 .blog-comment{
-    background-color: #343a40;
-    border: solid white;
+    background-color: white;
+    border: solid black;
     border-width: 0.1rem;
 }
 
 .blog-comment:hover{
-    background-color: #5a5e61;
+    background-color: rgb(246, 250, 250);
 }
 .sidebar{
     margin  :2rem;
@@ -94,19 +87,23 @@ a:hover,a:active{
     height:85vh;
     width:auto;
     overflow: hidden;
-    background-color:black;
+    background-color:white;
 }
 
 .home-link{
-    background-color: #031633;
+    background-color: #212529;
     width: 50%;
-    border: solid white;
+    border: solid black;
     border-width: 0.1rem;
     border-radius:2rem;
     padding: 0.75rem;
     text-align: center;
+    color: white;
 }
 
+.home-link:active{
+    background-color: #084298;
+}
 .home-link:hover{
     background-color: #052c65;
     cursor: pointer;
@@ -124,5 +121,5 @@ a:hover,a:active{
 }
 
 .plus-sign:hover{
-    box-shadow: 0px 4px 27px -2px #FFFFFF;
+    box-shadow: 0px 4px 27px -2px #87e2fc;
 }

@@ -11,7 +11,7 @@ class GalleryComponent extends Component{
     render(){
         if(this.props.isImagesLoading){
             return(
-                <div className="text-light text-center">
+                <div className="text-dark text-center">
                     <div className="spinner-border text-primary" role="status">
                     </div>
                     <br/>
@@ -35,10 +35,10 @@ class GalleryComponent extends Component{
     
             return (
                 <div>
-                    <div className="container bg-black p-4">
-                    <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><Link className="text-light" to="/">Home</Link></li>
-                    <li className="breadcrumb-item active text-light">Gallery</li>
+                    <div className="container p-4">
+                    <ol className="breadcrumb text-dark">
+                    <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                    <li className="breadcrumb-item active ">Gallery</li>
                     </ol>
                     </div>
                     <div className="container">

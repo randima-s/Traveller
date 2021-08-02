@@ -75,10 +75,10 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
                      <Form onSubmit={handleSubmit}>
                      <Form.Group >
                      <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} 
-                      id="newComment" ref={newComment} className="bg-dark text-light mb-2"/>
+                      id="newComment" ref={newComment} className="text-dark mb-2"/>
                      </Form.Group>
                      <div className="d-flex flex-row-reverse mt-2">
-                        <Button variant="secondary" type="submit" >
+                        <Button variant="primary" type="submit" >
                             Post
                         </Button>
                      </div>

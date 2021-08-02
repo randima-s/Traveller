@@ -11,13 +11,13 @@ function ContactComponent(props){
 
     return(
         <div>
-            <div className="container bg-black p-4">
+            <div className="container text-dark p-4">
                 <ol className="breadcrumb">
-                <li className="breadcrumb-item"><Link className="text-light" to="/">Home</Link></li>
-                <li className="breadcrumb-item active text-light">Contact</li>
+                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                <li className="breadcrumb-item active ">Contact</li>
                 </ol>
                 </div>
-            <div className="container mt-2 pb-2 bg-dark text-light">
+            <div className="container mt-2 pb-2  text-dark">
                 <h3 className="text-center">Contact</h3>
                 <Row className=" m-2  p-2 bg-light text-dark">
                     <div className="col-md-2">
