@@ -8,7 +8,6 @@ class HomeComponent extends Component{
         document.title="Traveller Home";
     }
 
-
     render(){
 
         const QuoteText=(
@@ -23,7 +22,7 @@ class HomeComponent extends Component{
                 <div className="row  ">
                     <div className="col-md-7 p-0  align-self-center">
                         <div className="  p-2  align-items-center h-100 ">
-                        <img src={baseURL+"/assets/img/cover.png"} alt="cover" className="w-100"/>
+                            <img src={baseURL+"/assets/img/cover.png"} alt="cover" className="w-100"/>
                         </div>
                     </div>
                     <div className=" col-md-5  text-light d-flex align-self-center">
@@ -31,18 +30,15 @@ class HomeComponent extends Component{
                             {QuoteText}
                             <br/>
                             <Link to="/blog#top">
-                            <p className="home-link mx-auto">Blog</p>
+                                <p className="home-link mx-auto">Blog</p>
                             </Link>
                             <Link  to="/gallery#top">
-                            <p className="home-link mx-auto">Gallery</p>
+                                <p className="home-link mx-auto">Gallery</p>
                             </Link>
                         </div>
                     </div>
                 </div>
-                
             </div>
-            
-            
         );
     };
     

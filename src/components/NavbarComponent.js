@@ -1,39 +1,32 @@
-import { Component } from "react";
+import { useState } from "react";
 import {Navbar,Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {baseURL} from "../shared/baseUrl";
 
-class NavbarComponent extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            NavbarExpanded:false
-        }
+function NavbarComponent(props){
+
+    const [navbarExpanded,setNavbarExpanded]=useState(false);
+
+    const toggleClick=(newState)=>{
+        setNavbarExpanded(newState);
     }
 
-    ToggleClick=(newState)=>{
-        this.setState({NavbarExpanded:newState});
-    }
-
-    render(){
-        return(
-            <Navbar style={{backgroundColor:"black"}} expand="lg" variant="dark" expanded={this.state.NavbarExpanded} >
-                <div className="container ">
+    return(
+        <Navbar style={{backgroundColor:"black"}} expand="lg" variant="dark" expanded={navbarExpanded} >
+            <div className="container ">
                 <Link to="/" className="navbar-brand" ><img src={baseURL+"/assets/img/logo.png"} alt="Traveller"/></Link>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>this.ToggleClick(!this.state.NavbarExpanded)} />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={()=>toggleClick(!navbarExpanded)} />
                 <Navbar.Collapse id="responsive-navbar-nav"  >
-                    <Nav className="ms-auto text-center">
-                    <Link to="/" className="nav-link" onClick={()=>this.ToggleClick(false)}>Home</Link>
-                    <Link to="/blog" className="nav-link" onClick={()=>this.ToggleClick(false)}>Blog</Link>
-                    <Link to="/gallery" className="nav-link" onClick={()=>this.ToggleClick(false)}>Galley</Link>
-                    <Link to="/contact" className="nav-link" onClick={()=>this.ToggleClick(false)}>Contact</Link>
+                    <Nav className="ms-auto text-center" onClick={()=>toggleClick(false)}>
+                    <Link to="/" className="nav-link" >Home</Link>
+                    <Link to="/blog" className="nav-link" >Blog</Link>
+                    <Link to="/gallery" className="nav-link" >Galley</Link>
+                    <Link to="/contact" className="nav-link" >Contact</Link>
                     </Nav>
                 </Navbar.Collapse>
-                </div>
-            </Navbar>
-        );
-    };
+            </div>
+        </Navbar>
+    );
 }
-
 
 export default NavbarComponent;

@@ -1,19 +1,19 @@
 import  { useEffect, useState } from "react";
 import useStorage from "../firebase/useStorage";
 import ProgressBarComponent from "./ProgressBarComponent";
+import {Link} from "react-router-dom";
 
 function UploadComponent(props){
 
     const [file,setFile]=useState(null);
     const [error,setError]=useState(null);
     const {progress,url,uploadError}=useStorage(file,props.blogId,(image)=>props.addImage(image));
-    const [imageList,setImageList]=useState([]);
-    console.log(progress,url,uploadError)
+    const [imageList,setImageList]=useState(props.images);
 
+    //setImageList(props.images);
 
     useEffect(()=>{
         document.title="Upload Images";
-        setImageList(props.images);
     })
 
     useEffect(()=>{
@@ -31,8 +31,6 @@ function UploadComponent(props){
         if(selected && types.includes(selected.type)){
             setFile(selected);
             setError(null);
-
-            console.log("changed\n");
         }
         else{
             setFile(null);
@@ -43,9 +41,9 @@ function UploadComponent(props){
     const imageGrid=imageList.map((image)=>{
         return(
             <div key={image.id} className="col-lg-3 col-md-4 col-sm-6 col-12"> 
-            <div className="m-2">
-                <img src={image.url} alt={image.caption} className="w-100"/>
-            </div>
+                <div className="m-2">
+                    <img src={image.url} alt={image.caption} className="w-100"/>
+                </div>
             </div>
         );
     });
@@ -54,6 +52,13 @@ function UploadComponent(props){
 
     return(
         <div className="container text-light">
+            <div className="container bg-black p-4 position-relative">
+                <ol className="breadcrumb ">
+                    <li className="breadcrumb-item" ><Link to="/" className="text-light">Home</Link></li>
+                    <li className="breadcrumb-item" ><Link to="/blog" className="text-light">Blog</Link></li>
+                    <li className="breadcrumb-item active text-light">{props.blogData[0].title}</li>
+                </ol>
+            </div>
             <h1 className="text-center">{props.blogData[0].title}</h1>
             <div className="row justify-content-center m-0">
                 <div className="col-md-6 text-center">
@@ -61,32 +66,22 @@ function UploadComponent(props){
                 </div>
             </div>
             <div className="row justify-content-center w-100 mx-0 my-4">
-            <form  className="col-sm-1" >
-                <label className=" fs-2 mb-2 w-100 d-flex justify-content-center">
-                    <input type="file" onChange={changeHandler} style={{display:"none"}}/>
-                    <div className="plus-sign fs-2 text-center ">+</div>
-                </label>
-            </form>
+                <form  className="col-sm-1" >
+                    <label className=" fs-2 mb-2 w-100 d-flex justify-content-center">
+                        <input type="file" onChange={changeHandler} style={{display:"none"}}/>
+                        <div className="plus-sign fs-2 text-center ">+</div>
+                    </label>
+                </form>
             <div >
                 {error && <div className="error text-danger text-center ">{error}</div>}
                 {file && <ProgressBarComponent progress={progress}/>}
             </div>
             </div>
-
-
             <div className="row bg-dark">
                 {imageGrid}
             </div>
-            
         </div>
     );
 }
 
 export default UploadComponent;
-
-/*                <label className="bg-primary rounded  text-center fs-2 mb-2 w-100">
-                    <input type="file" onChange={changeHandler} style={{display:"none"}}/>
-                    <div className="plus-sign"></div>
-                    <p className=" w-100" > + </p>
-                </label>
-                */

@@ -7,14 +7,6 @@ body{
     background-color: black;
 }
 
-.bg-light-dark{
-    background-color: #343a40;
-}
-
-.bg-black{
-    background-color: black;
-}
-
 a{
     color:white;
     text-decoration: none;
@@ -25,30 +17,62 @@ a:hover,a:active{
     text-decoration: none;
 }
 
+/*Background*/
+.bg-light-dark{
+    background-color: #343a40;
+}
+
+.bg-black{
+    background-color: black;
+}
+
+/*Gallery*/
 .modal-custom{
     height: 100vh;
 }
-/*
-.aspect-ratio-box{
-    overflow: hidden;
-    height: 0;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-top: calc((300/1440)*100%);
+
+.gallery-item:hover,.gallery-item:active{
+    background-color: black;
+    border:solid;
+    border-color: white;
 }
-.aspect-ratio-box:hover{
-    border: solid;
-    border-color: #6ea8fe;
+.gallery-item{
+    background-color: #212529;
 }
 
-.aspect-ratio-box-inside{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.mini-image:hover{
+    background-color:black ;
+    border: solid;
+    border-color: white;
 }
-*/
+
+/*Blog*/
+.blog-item{
+    background-color: #212529;
+}
+.blog-item:hover{
+    background-color: #292c30;
+}
+.blog-new-image{
+    background-color: #191b1d;
+    min-height: 7rem;
+}
+.blog-new-image:hover{
+    border: solid white;
+}
+.home-link:active{
+    background-color: #084298;
+}
+
+.blog-comment{
+    background-color: #343a40;
+    border: solid white;
+    border-width: 0.1rem;
+}
+
+.blog-comment:hover{
+    background-color: #5a5e61;
+}
 .sidebar{
     margin  :2rem;
     text-align: center;
@@ -65,32 +89,7 @@ a:hover,a:active{
     }
 }
 
-.gallery-item:hover,.gallery-item:active{
-    background-color: #031633;
-    border:solid;
-    border-color: #084298;
-}
-.gallery-item{
-    background-color: #212529;
-}
-.mini-image:hover{
-    border: solid;
-    border-color: #6ea8fe
-}
-
-
-.blog-item{
-    background-color: #212529;
-}
-.blog-item:hover{
-    background-color: #292c30;
-}
-.blog-new-image{
-    color: white;
-    min-height: 7rem;
-}
-
-
+/*Home*/
 .home-div{
     height:85vh;
     width:auto;
@@ -114,20 +113,7 @@ a:hover,a:active{
     transition: background-color 200ms;
 }
 
-.home-link:active{
-    background-color: #084298;
-}
-
-.blog-comment{
-    background-color: #343a40;
-}
-
-.blog-comment:hover{
-    background-color: #5a5e61;
-    border: solid white;
-    border-width: 0.1rem;
-}
-
+/*New Item Button*/
 .plus-sign{
     height: 3.5rem;
     width: 3.5rem;

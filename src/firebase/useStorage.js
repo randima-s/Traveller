@@ -5,9 +5,6 @@ const useStorage=(file,blogId,addImage)=>{
     const [progress,setProgress]=useState(0);
     const [error,setError] =useState(null);
     const [url,setUrl]=useState(null);
-    //let progress=0;
-    //let error=null;
-    //let url=null;
 
     useEffect(()=>{
         if(file){
@@ -22,7 +19,6 @@ const useStorage=(file,blogId,addImage)=>{
             },
             (err)=>{
                 setError(error);
-                //error=err;
             },
             async ()=>{
                 let url=await storageRef.getDownloadURL();
