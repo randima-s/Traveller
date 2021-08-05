@@ -1,7 +1,7 @@
 import { Component } from "react";
-import {Switch,Route,withRouter} from "react-router-dom";
+import {Switch,Route,withRouter, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import { addComment,fetchComments ,fetchBlogs,fetchImages,updateBlogs,addImage} from '../redux/ActionCreators';
+import { addComment,fetchComments ,fetchBlogs,fetchImages,updateBlogs,addImage,updateUser} from '../redux/ActionCreators';
 
 import NavbarComponent from "./NavbarComponent";
 import HomeComponent from "./HomeComponent";
@@ -10,24 +10,25 @@ import BlogComponent from "./BlogComponent";
 import ContactComponent from "./ContactComponent";
 import UploadComponent from "./UploadComponent";
 import NewBlogComponent from "./NewBlogComponent";
+import LogInComponent from "./LogInComponent";
 
 const mapStateToProps = state => {
     return {
         images:state.images,
-        carousel:state.carousel,
-        explore:state.explore,
         blogs:state.blogs,
-        comments:state.comments
+        comments:state.comments,
+        user:state.user
     }
 }
 
 const mapDispatchToProps=dispatch=>({
-    addComment:(comment,id,postId)=>dispatch(addComment(comment,id,postId)),
+    addComment:(comment,postId,user)=>dispatch(addComment(comment,postId,user)),
     fetchComments:()=>dispatch(fetchComments()),
     fetchBlogs:()=>dispatch(fetchBlogs()),
     fetchImages:()=>dispatch(fetchImages()),
     addImage:(image)=>dispatch(addImage(image)),
-    updateBlogs:(newBlog)=>dispatch(updateBlogs(newBlog))
+    updateBlogs:(newBlog)=>dispatch(updateBlogs(newBlog)),
+    updateUser:(user)=>dispatch(updateUser(user))
 })
 
 class MainComponent extends Component{
@@ -45,12 +46,13 @@ class MainComponent extends Component{
             return(<UploadComponent blogId={blogId} 
                 blogData={this.props.blogs.blogs.filter((blog)=>blog.id===blogId)}
                 images={this.props.images.images.filter((image)=>image.blogId===blogId)}
-                addImage={this.props.addImage}/>);
+                addImage={this.props.addImage}
+                user={this.props.user}/>);
         }
 
         return(
             <div>
-                <NavbarComponent/>
+                <NavbarComponent user={this.props.user}/>
                 
                 <Switch>
                     <Route exact path="/" component={()=><HomeComponent  />}></Route>
@@ -59,10 +61,12 @@ class MainComponent extends Component{
                     <Route exact path="/blog" component={()=><BlogComponent 
                         images={this.props.images.images}  isImagesLoading={this.props.images.isLoading} imageError={this.props.images.error}
                         blogs={this.props.blogs.blogs} isBlogLoading={this.props.blogs.isLoading} blogError={this.props.blogs.error}
-                        comments={this.props.comments.comments} addComment={this.props.addComment} />}></Route>
+                        comments={this.props.comments.comments} addComment={this.props.addComment}
+                        user={this.props.user} />}></Route>
                     <Route exact path="/contact" component={()=><ContactComponent/>}/>
-                    <Route exact path="/newblog" component={()=><NewBlogComponent updateBlogs={this.props.updateBlogs}/>}/>
+                    <Route exact path="/newblog" component={()=><NewBlogComponent updateBlogs={this.props.updateBlogs} user={this.props.user}/>}/>
                     <Route  path="/upload:id" component={UploadImages}/>
+                    {this.props.user.isLoggedIn?<Redirect to="/"></Redirect>:<Route path="/login" component={()=><LogInComponent  />}/>}
                 </Switch>
                 
             </div>

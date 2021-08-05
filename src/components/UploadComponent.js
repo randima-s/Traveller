@@ -67,10 +67,16 @@ function UploadComponent(props){
             </div>
             <div className="row justify-content-center w-100 mx-0 my-4">
                 <form  className="col-sm-1" >
-                    <label className=" fs-2 mb-2 w-100 d-flex justify-content-center">
+                    {props.user.isLoggedIn?(
+                        <label className=" fs-2 mb-2 w-100 d-flex justify-content-center">
                         <input type="file" onChange={changeHandler} style={{display:"none"}}/>
                         <div className="plus-sign fs-2 text-center ">+</div>
-                    </label>
+                        </label>
+                    ):(
+                        <div className="text-center  ">
+                            <Link to="/login" className="text-primary">Sign In to add Photos</Link>
+                        </div>
+                    )}
                 </form>
             <div >
                 {error && <div className="error text-danger text-center ">{error}</div>}

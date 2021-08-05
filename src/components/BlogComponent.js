@@ -3,6 +3,9 @@ import BlogItemComponent from "./BlogItemComponent";
 import {Link} from "react-router-dom";
 
 class BlogComponent extends Component{
+    constructor(props){
+        super(props);
+    }
 
     componentDidMount(){
         document.title="Traveller Blog";
@@ -42,7 +45,8 @@ class BlogComponent extends Component{
                     blogData={blog}
                     images={this.props.images.filter((image)=>image.blogId===blog.id)}
                     comments={this.props.comments.filter((comment)=>comment.postId===blog.id)}
-                    addComment={this.props.addComment}/>
+                    addComment={this.props.addComment}
+                    user={this.props.user}/>
                 );
             }));
     
@@ -65,13 +69,13 @@ class BlogComponent extends Component{
                                         <li className="list-group-item bg-dark text-light" onClick={()=>{window.scrollTo(0,0)}}>Top</li>
                                     </ul>
                                 </div>
-    
-                                <div  className="row mx-0 my-4 p-2 blog-item rounded justify-content-center ">   
-                                    <div className=" col-auto plus-sign fs-2 text-center"><Link to="/newblog" >+</Link></div>
-                                    <Link to="/newblog" >
-                                    <p className="text-center mt-2" >Create New Blog</p>
-                                    </Link>
+
+                                <Link to={this.props.user.isLoggedIn?"/newblog":"/login"} >
+                                <div  className="row mx-0 my-4 p-2 blog-item rounded justify-content-center "> 
+                                    <div className=" col-auto plus-sign fs-2 text-center">+</div>
+                                    <p className="text-center mt-2" >{this.props.user.isLoggedIn?"Create New Blog":"Sign in to Create New Blog"}</p>
                                 </div>
+                                </Link>
     
                                 {Items}
                                 

@@ -10,9 +10,11 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
     let newComment=React.createRef();
     const myRef= useRef(null);
 
+    console.log(props.user.isLoggedIn);
+
     function handleSubmit(event){
         if(newComment.current.value.length>0){
-            props.addComment(newComment.current.value,props.comments.length,props.blogData.id);
+            props.addComment(newComment.current.value,props.blogData.id,props.user.user.displayName);
         }
         event.preventDefault();
     }
@@ -41,6 +43,7 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
     const Comments=props.comments.map((comment)=>{
         return(
             <div className="shadow-sm p-2 mb-2 blog-comment rounded text-wrap"  key={comment.id}>
+            <span className="fw-bold">{comment.user}</span><hr className="m-1"/>
             {comment.comment}
             <p className="text-end p-0 m-0 text-secondary">{ convertDate(comment.date)}</p>
             </div>
@@ -51,7 +54,7 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
      return(
          <div className="my-4 p-2 blog-item" id={props.blogData.id} ref={myRef} >
              <h4 className="my-2 text-center">{props.blogData.title}</h4>
-             <p className="text-center ">{convertDate(props.blogData.createdAt)}</p>
+             <p className="text-center ">{props.blogData.user} , {convertDate(props.blogData.createdAt)}</p>
              <img src={selectedImage} alt={featuredImg.caption} className=" rounded px-2 mx-auto d-block mb-2" onClick={()=>handleImageClick(featuredImg.id)}
              style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>
              <div className="row px-2">
@@ -74,13 +77,14 @@ import { NavHashLink  as Link }  from "react-router-hash-link";
                  <div className="mb-2">
                      <Form onSubmit={handleSubmit}>
                      <Form.Group >
-                     <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} 
+                     <Form.Control type="text" placeholder="Add comment" as="textarea" rows={2} disabled={!props.user.isLoggedIn}
                       id="newComment" ref={newComment} className="text-dark mb-2"/>
                      </Form.Group>
                      <div className="d-flex flex-row-reverse mt-2">
-                        <Button variant="primary" type="submit" >
+                        <Button variant="primary" type="submit" className="ms-2" disabled={!props.user.isLoggedIn}>
                             Post
                         </Button>
+                        {!props.user.isLoggedIn?<Link to="/login" className="text-primary m-2">Sign In</Link>:null}
                      </div>
                      </Form>
                  </div>

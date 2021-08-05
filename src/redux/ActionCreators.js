@@ -24,11 +24,12 @@ export const fetchComments=()=>dispatch=>{
     })
 }
 
-export const addComment=(comment,id,postId)=>dispatch=>{
+export const addComment=(comment,postId,user)=>dispatch=>{
     
     const newComment={
         postId:postId,
         comment:comment,
+        user:user,
         date:firebase.firestore.Timestamp.fromDate(new Date())
     };
 
@@ -152,5 +153,15 @@ export const errorImages=(error)=>{
     return({
         type:ActionTypes.ERROR_IMAGES,
         payload:error
+    });
+}
+
+//////////////////////////////////////////////////////////
+//user
+
+export const updateUser=(user)=>{
+    return({
+        type:ActionTypes.UPDATE_USER,
+        payload:user
     });
 }
