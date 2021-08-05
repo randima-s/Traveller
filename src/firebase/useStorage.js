@@ -1,8 +1,26 @@
-import {storage,db,timeStamp} from "./firebase";
-import { useState,useEffect } from "react";
-import {addData} from "./fireStore";
+import {storage} from "./firebase";
 
-const useStorage=(file,blogId,addImage)=>{
+export const addImage=(file,blogId,callBack)=>{
+    return new Promise((resolve,reject)=>{
+        const storageRef=storage.ref("images/"+file.name);
+
+        storageRef.put(file).on("state_change",
+            (snap)=>{
+                let progress=(snap.bytesTransferred/snap.totalBytes)*100;
+                callBack(progress);
+            },
+            (err)=>{
+                reject(err);
+            },
+            async ()=>{
+                let url=await storageRef.getDownloadURL();
+                resolve(url);
+            }
+        )
+    });
+}
+
+/*const useStorage=(file,blogId,addImage)=>{
     const [progress,setProgress]=useState(0);
     const [error,setError] =useState(null);
     const [url,setUrl]=useState(null);
@@ -38,16 +56,6 @@ const useStorage=(file,blogId,addImage)=>{
                 .catch((error)=>{
                     console.log(error);
                 });
-                /*fireStoreRef.add(newImage)
-                .then((docRef)=>{
-                    console.log(docRef);
-                    newImage.id=docRef.id;
-                    addImage(newImage);
-                })
-                .catch((error)=>{
-                    console.log(error);
-                });*/
-
                 setUrl(url);
             });
         }
@@ -56,6 +64,6 @@ const useStorage=(file,blogId,addImage)=>{
 
     return {progress,url,error};
 
-};
+};*/
 
-export default useStorage;
+//export default useStorage;

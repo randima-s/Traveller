@@ -1,5 +1,6 @@
 import  { useEffect, useState } from "react";
-import useStorage from "../firebase/useStorage";
+import {addImage} from "../firebase/useStorage";
+import {addData} from "../firebase/fireStore";
 import ProgressBarComponent from "./ProgressBarComponent";
 import {Link} from "react-router-dom";
 
@@ -7,20 +8,13 @@ function UploadComponent(props){
 
     const [file,setFile]=useState(null);
     const [error,setError]=useState(null);
-    const {progress,url,uploadError}=useStorage(file,props.blogId,(image)=>props.addImage(image));
+    const [progress,setProgress]=useState(0);
     const [imageList,setImageList]=useState(props.images);
 
-    //setImageList(props.images);
 
     useEffect(()=>{
         document.title="Upload Images";
     })
-
-    useEffect(()=>{
-        if(url){
-            setFile(null);
-        }
-    },[url]);
 
     const changeHandler=(e)=>{
 
@@ -31,6 +25,31 @@ function UploadComponent(props){
         if(selected && types.includes(selected.type)){
             setFile(selected);
             setError(null);
+            addImage(selected,0,(progress)=>{
+                console.log(progress);
+                setProgress(progress);
+            })
+            .then((url)=>{
+                const newImage={
+                    url,
+                    blogId:props.blogId,
+                    caption:selected.name
+                };
+
+                addData("images",newImage)
+                .then((docRefId)=>{
+                    //console.log(docRefId);
+                    newImage.id=docRefId;
+                    props.addImage(newImage);
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
+                setFile(null);
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
         }
         else{
             setFile(null);
