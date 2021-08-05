@@ -11,8 +11,6 @@ import {addData} from "../firebase/fireStore";
     let newComment=React.createRef();
     const myRef= useRef(null);
 
-    console.log(props.user.isLoggedIn);
-
     function handleSubmit(event){
         event.preventDefault();
 
@@ -76,7 +74,7 @@ import {addData} from "../firebase/fireStore";
                     <Link to={"/upload"+props.blogData.id}>
                     <div className=" position-absolute top-50 start-50 translate-middle">
                         <div className="plus-sign fs-2 text-center">+</div>
-                        <p className=" text-center fs-5">Image</p>
+                        <p className=" text-center fs-5">Photos</p>
                     </div>
                     </Link>
                 </div>

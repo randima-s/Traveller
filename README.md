@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Welcome to Traveller!
+Visit [Traveller](https://randima-s.github.io/Traveller/) page here.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my travel blog. I have posted beautiful photos I have captured during my travels.
 
-## Available Scripts
+<img src="https://firebasestorage.googleapis.com/v0/b/travelpage-randima.appspot.com/o/other%2FpageView.PNG?alt=media&token=617f376e-866c-4afc-a1e1-cb5f9df53cc9" alt="Traveller" width="100%"/>
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+ 1. Mobile Friendly 
+<img src="https://firebasestorage.googleapis.com/v0/b/travelpage-randima.appspot.com/o/other%2Fmobile1.jpeg?alt=media&token=8a83fce9-bf5d-41f0-9b76-9ed2049e1b75" alt="mobile" width="20%"/>
+<img src="https://firebasestorage.googleapis.com/v0/b/travelpage-randima.appspot.com/o/other%2Fmobile2.jpeg?alt=media&token=b2058e88-9901-4005-b901-40d906b89445" alt="mobile" width="20%"/>
+ 2. Upload Images
+ <img src="https://firebasestorage.googleapis.com/v0/b/travelpage-randima.appspot.com/o/other%2Fupload.png?alt=media&token=cdb0f464-01e7-4934-80dc-f9e7d55b44bb" alt="upload" width="60%"/>
+ 3. Add Comments
+  <img src="https://firebasestorage.googleapis.com/v0/b/travelpage-randima.appspot.com/o/other%2Fcomment.PNG?alt=media&token=3f0dd340-f634-4fa7-8609-e41028f0bc14" alt="upload" width="40%"/>
+ 4. Create New Blog posts
+ 5. All the images and data stored on cloud (firestore)
+ 6. Authentication - create your own account
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Stack Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+ 1. React
+ 2. Bootstrap and custom CSS
+ 3. Firebase
+	 1. Authentication - email, password
+	 2. FireStore
+	 3. Storage
+ 4. Redux
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

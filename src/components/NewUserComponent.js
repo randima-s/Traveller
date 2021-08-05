@@ -64,7 +64,7 @@ function NewUserComponent(props){
         <div>
             <div className="row justify-content-center align-items-center"  style={{height:"80vh"}}>
                 <div className="col-12 col-md-6 col-lg-4">
-                    <img src={baseURL+"/assets/img/logo.png"} alt="Traveller"/>
+                    <img src={baseURL+"/assets/img/logoBlack.png"} alt="Traveller" className="w-100 p-4"/>
                     <h2 className="text-center mb-4">Create Account</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-2">
