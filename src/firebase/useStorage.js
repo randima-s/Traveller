@@ -1,5 +1,6 @@
 import {storage,db,timeStamp} from "./firebase";
 import { useState,useEffect } from "react";
+import {addData} from "./fireStore";
 
 const useStorage=(file,blogId,addImage)=>{
     const [progress,setProgress]=useState(0);
@@ -9,7 +10,7 @@ const useStorage=(file,blogId,addImage)=>{
     useEffect(()=>{
         if(file){
             const storageRef=storage.ref("images/"+file.name);
-            const fireStoreRef=db.collection("images");
+            //const fireStoreRef=db.collection("images");
 
             storageRef.put(file).on("state_change",
             (snap)=>{
@@ -29,7 +30,16 @@ const useStorage=(file,blogId,addImage)=>{
                     caption:file.name,
                     createdAt:timeStamp()};
 
-                fireStoreRef.add(newImage)
+                addData("images",newImage)
+                .then((docRefId)=>{
+                    console.log(docRefId);
+                    newImage.id=docRefId;
+                    addImage(newImage);
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
+                /*fireStoreRef.add(newImage)
                 .then((docRef)=>{
                     console.log(docRef);
                     newImage.id=docRef.id;
@@ -37,7 +47,7 @@ const useStorage=(file,blogId,addImage)=>{
                 })
                 .catch((error)=>{
                     console.log(error);
-                });
+                });*/
 
                 setUrl(url);
             });

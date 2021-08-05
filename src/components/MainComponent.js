@@ -1,7 +1,7 @@
 import { Component } from "react";
 import {Switch,Route,withRouter, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import { addComment,fetchComments ,fetchBlogs,fetchImages,updateBlogs,addImage,updateUser} from '../redux/ActionCreators';
+import { updateComments,fetchComments ,fetchBlogs,fetchImages,updateBlogs,addImage,updateUser} from '../redux/ActionCreators';
 
 import NavbarComponent from "./NavbarComponent";
 import HomeComponent from "./HomeComponent";
@@ -22,7 +22,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps=dispatch=>({
-    addComment:(comment,postId,user)=>dispatch(addComment(comment,postId,user)),
+    updateComments:(comment)=>dispatch(updateComments(comment)),
     fetchComments:()=>dispatch(fetchComments()),
     fetchBlogs:()=>dispatch(fetchBlogs()),
     fetchImages:()=>dispatch(fetchImages()),
@@ -61,7 +61,7 @@ class MainComponent extends Component{
                     <Route exact path="/blog" component={()=><BlogComponent 
                         images={this.props.images.images}  isImagesLoading={this.props.images.isLoading} imageError={this.props.images.error}
                         blogs={this.props.blogs.blogs} isBlogLoading={this.props.blogs.isLoading} blogError={this.props.blogs.error}
-                        comments={this.props.comments.comments} addComment={this.props.addComment}
+                        comments={this.props.comments.comments} updateComments={this.props.updateComments}
                         user={this.props.user} />}></Route>
                     <Route exact path="/contact" component={()=><ContactComponent/>}/>
                     <Route exact path="/newblog" component={()=><NewBlogComponent updateBlogs={this.props.updateBlogs} user={this.props.user}/>}/>

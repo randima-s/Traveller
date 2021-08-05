@@ -45,7 +45,7 @@ class BlogComponent extends Component{
                     blogData={blog}
                     images={this.props.images.filter((image)=>image.blogId===blog.id)}
                     comments={this.props.comments.filter((comment)=>comment.postId===blog.id)}
-                    addComment={this.props.addComment}
+                    updateComments={this.props.updateComments}
                     user={this.props.user}/>
                 );
             }));

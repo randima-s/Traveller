@@ -1,6 +1,7 @@
 import  { useRef, useState,useEffect } from "react";
 import { useHistory,Link } from "react-router-dom";
-import {db,timeStamp} from "../firebase/firebase";
+import {timeStamp} from "../firebase/firebase";
+import {addData} from "../firebase/fireStore";
 
 function NewBlogComponent(props){
 
@@ -23,8 +24,18 @@ function NewBlogComponent(props){
                 user:props.user.user.displayName,
                 createdAt:timeStamp()
             };
-    
-            db.collection("blogs").add(newBlog)
+
+            addData("blogs",newBlog)
+            .then((docRefId)=>{
+                newBlog.id=docRefId;
+                props.updateBlogs(newBlog);
+                history.push("/upload"+docRefId);
+            })
+            .catch((error)=>{
+                alert("Error Adding Blog: "+error);
+                console.log("Error Adding Blog: "+error);
+            });
+            /*db.collection("blogs").add(newBlog)
             .then((docRef)=>{
                 console.log(docRef.id);
                 newBlog.id=docRef.id;
@@ -34,7 +45,7 @@ function NewBlogComponent(props){
             .catch((error)=>{
                 alert("Error Adding Blog: "+error);
                 console.log("Error Adding Blog: "+error);
-            });
+            });*/
 
         }
         else{

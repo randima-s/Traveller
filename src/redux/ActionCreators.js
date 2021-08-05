@@ -1,15 +1,22 @@
 import * as ActionTypes from "./ActionTypes";
 
 //firebase
-import {db} from "../firebase/firebase";
-import firebase from "firebase/app";
+//import firebase from "firebase/app";
+import {readData} from "../firebase/fireStore";
 
 //////////////////////////////////////////////////////////
 //Comments
 
 export const fetchComments=()=>dispatch=>{
-    const comments=[];
-    db.collection("comments").get()
+    //const comments=[];
+    readData("comments")
+    .then((comments)=>{
+        dispatch(loadComments(comments))
+    })
+    .catch(error=>{
+        console.log("Error: "+error);
+    });
+    /*db.collection("comments").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             comments.push({
@@ -21,10 +28,10 @@ export const fetchComments=()=>dispatch=>{
     })
     .catch(error=>{
         console.log("Error: "+error);
-    })
+    })*/
 }
 
-export const addComment=(comment,postId,user)=>dispatch=>{
+/*export const addComment=(comment,postId,user)=>dispatch=>{
     
     const newComment={
         postId:postId,
@@ -42,7 +49,7 @@ export const addComment=(comment,postId,user)=>dispatch=>{
         console.log("Error adding document: "+error);
     });
     
-}
+}*/
 
 export const loadComments=comments=>{
     return({
@@ -62,9 +69,17 @@ export const updateComments=(comment)=>{
 //Blogs
 
 export const fetchBlogs=()=>dispatch=>{
-    const blogs=[];
+    //const blogs=[];
     dispatch(loadingBlogs());
-    db.collection("blogs").get()
+    readData("blogs")
+    .then((blogs)=>{
+        dispatch(loadBlogs(blogs))
+    })
+    .catch(error=>{
+        console.log("Error: "+error);
+        dispatch(errorBlogs(error));
+    });
+    /*db.collection("blogs").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             blogs.push({
@@ -77,7 +92,7 @@ export const fetchBlogs=()=>dispatch=>{
     .catch(error=>{
         console.log("Error: "+error);
         dispatch(errorBlogs(error));
-    })
+    })*/
 }
 
 export const loadingBlogs=()=>{
@@ -111,9 +126,17 @@ export const errorBlogs=(error)=>{
 //Images
 
 export const fetchImages=()=>dispatch=>{
-    const images=[];
+    //const images=[];
     dispatch(loadingImages());
-    db.collection("images").get()
+    readData("images")
+    .then((images)=>{
+        dispatch(loadImages(images))
+    })
+    .catch(error=>{
+        console.log("Error: "+error);
+        dispatch(errorImages(error));
+    });
+    /*db.collection("images").get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             images.push({
@@ -126,7 +149,7 @@ export const fetchImages=()=>dispatch=>{
     .catch(error=>{
         console.log("Error: "+error);
         dispatch(errorImages(error));
-    })
+    })*/
 }
 
 export const loadingImages=()=>{
