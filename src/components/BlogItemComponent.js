@@ -20,8 +20,7 @@ import {addData} from "../firebase/fireStore";
         const newCommentJSON={
             postId:props.blogData.id,
             comment:newComment.current.value,
-            user:props.user.user.displayName,
-            date:firebase.firestore.Timestamp.fromDate(new Date())
+            user:props.user.user.displayName
         };
         addData("comments",newCommentJSON)
         .then((docRefId)=>{
@@ -62,7 +61,7 @@ import {addData} from "../firebase/fireStore";
             <div className="shadow-sm p-2 mb-2 blog-comment rounded text-wrap"  key={comment.id}>
             <span className="fw-bold">{comment.user}</span><hr className="m-1"/>
             {comment.comment}
-            <p className="text-end p-0 m-0 text-secondary">{ convertDate(comment.date)}</p>
+            <p className="text-end p-0 m-0 text-secondary">{ convertDate(comment.date || comment.createdAt)}</p>
             </div>
         );
     });

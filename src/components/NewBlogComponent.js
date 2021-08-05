@@ -21,8 +21,7 @@ function NewBlogComponent(props){
             const newBlog={
                 title:blogName.current.value,
                 desc:blogDesc.current.value,
-                user:props.user.user.displayName,
-                createdAt:timeStamp()
+                user:props.user.user.displayName
             };
 
             addData("blogs",newBlog)

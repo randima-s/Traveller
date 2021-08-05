@@ -27,8 +27,7 @@ const useStorage=(file,blogId,addImage)=>{
                 const newImage={
                     url,
                     blogId:blogId,
-                    caption:file.name,
-                    createdAt:timeStamp()};
+                    caption:file.name};
 
                 addData("images",newImage)
                 .then((docRefId)=>{

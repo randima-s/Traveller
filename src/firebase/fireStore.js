@@ -1,7 +1,9 @@
 import {db} from "./firebase";
+import {timeStamp} from "./firebase";
 
 export const addData=(collection,data)=>{
     return new Promise((resolve,reject)=>{
+        data.createdAt=timeStamp();
         db.collection(collection).add(data)
         .then((docRef)=>{
             resolve(docRef.id);
