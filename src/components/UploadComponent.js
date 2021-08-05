@@ -9,7 +9,6 @@ function UploadComponent(props){
     const [file,setFile]=useState(null);
     const [error,setError]=useState(null);
     const [progress,setProgress]=useState(0);
-    const [imageList,setImageList]=useState(props.images);
 
 
     useEffect(()=>{
@@ -57,7 +56,7 @@ function UploadComponent(props){
         }
     }
 
-    const imageGrid=imageList.map((image)=>{
+    const imageGrid=props.images.map((image)=>{
         return(
             <div key={image.id} className="col-lg-3 col-md-4 col-sm-6 col-12"> 
                 <div className="m-2">
@@ -66,8 +65,6 @@ function UploadComponent(props){
             </div>
         );
     });
-
-
 
     return(
         <div className="container text-dark">

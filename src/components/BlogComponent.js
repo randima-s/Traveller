@@ -3,9 +3,6 @@ import BlogItemComponent from "./BlogItemComponent";
 import {Link} from "react-router-dom";
 
 class BlogComponent extends Component{
-    constructor(props){
-        super(props);
-    }
 
     componentDidMount(){
         document.title="Traveller Blog";

@@ -1,6 +1,5 @@
 import  { useRef, useState,useEffect } from "react";
 import { useHistory,Link } from "react-router-dom";
-import {timeStamp} from "../firebase/firebase";
 import {addData} from "../firebase/fireStore";
 
 function NewBlogComponent(props){
@@ -34,18 +33,6 @@ function NewBlogComponent(props){
                 alert("Error Adding Blog: "+error);
                 console.log("Error Adding Blog: "+error);
             });
-            /*db.collection("blogs").add(newBlog)
-            .then((docRef)=>{
-                console.log(docRef.id);
-                newBlog.id=docRef.id;
-                props.updateBlogs(newBlog);
-                history.push("/upload"+docRef.id);
-            })
-            .catch((error)=>{
-                alert("Error Adding Blog: "+error);
-                console.log("Error Adding Blog: "+error);
-            });*/
-
         }
         else{
             setError("Name cant be empty");

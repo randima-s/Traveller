@@ -1,6 +1,5 @@
 import {baseURL} from "../shared/baseUrl";
-import {useState,useEffect} from "react";
-import { useHistory } from "react-router";
+import {useState} from "react";
 
 import {addUser,updateUserName} from "../firebase/auth";
 
@@ -16,7 +15,7 @@ function NewUserComponent(props){
     const [passWordErrorVerify,setPassWordErrorVerify]=useState(null);
     const [accountError,setAccountError]=useState(null);
 
-    const history=useHistory();
+    const regexEmailPattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
     const handleChange=(event)=>{
         const target=event.target;
@@ -27,7 +26,7 @@ function NewUserComponent(props){
                 break;
             case "userEmail":
                 setUserEmail(target.value);
-                setUserEmailError(target.value.length<4?"Email must be at least 4 charaters long":null);
+                setUserEmailError(regexEmailPattern.test(target.value) ?null:"Invalid Email");
                 break;
             case "passWord":
                 setPassWord(target.value);
@@ -37,6 +36,8 @@ function NewUserComponent(props){
             case "passWordVerify":
                 setPassWordVerify(target.value);
                 setPassWordErrorVerify(passWord===target.value?null:"Password should match");
+                break;
+            default:
                 break;
         }
     }
@@ -88,7 +89,7 @@ function NewUserComponent(props){
                         </div>
                         {accountError && <div className="text-danger">{accountError}</div>}
                         <div >
-                            <button type="submit" className="btn btn-primary w-100 ">Create</button>
+                            <button type="submit" className="btn btn-primary w-100 " disabled={userEmailError || passWordError || passWordErrorVerify}>Create</button>
                         </div>
                         <hr/>
                         <div>

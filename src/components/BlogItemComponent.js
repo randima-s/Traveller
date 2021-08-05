@@ -1,7 +1,6 @@
 import React,{useState,useRef} from "react";
 import {Form,Button} from "react-bootstrap";
 import { NavHashLink  as Link }  from "react-router-hash-link";
-import firebase from "firebase/app";
 import {addData} from "../firebase/fireStore";
 
  function BlogItemComponent(props){
@@ -22,6 +21,7 @@ import {addData} from "../firebase/fireStore";
             comment:newComment.current.value,
             user:props.user.user.displayName
         };
+
         addData("comments",newCommentJSON)
         .then((docRefId)=>{
             newCommentJSON.id=docRefId;
@@ -30,9 +30,6 @@ import {addData} from "../firebase/fireStore";
         .catch((error)=>{
             console.log(error);
         });
-        /*if(newComment.current.value.length>0){
-            props.addComment(newComment.current.value,props.blogData.id,props.user.user.displayName);
-        }*/
     }
 
     function handleImageClick(imageID){

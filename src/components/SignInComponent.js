@@ -1,6 +1,5 @@
 import {baseURL} from "../shared/baseUrl";
-import {useState,useEffect} from "react";
-import { useHistory } from "react-router";
+import {useState} from "react";
 
 import {signIn} from "../firebase/auth";
 
@@ -12,24 +11,26 @@ function SignInComponent(props){
     const [passWordError,setPassWordError]=useState(null);
     const [loginError,setLoginError]=useState(null);
     //const history=useHistory();
+    const regexEmailPattern=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
     const handleChange=(event)=>{
         const target=event.target;
         switch(target.id){
             case "userEmail":
                 setUserEmail(target.value);
-                setUserEmailError(target.value.length<4?"Name must be at least 4 charaters long":null);
+                setUserEmailError(regexEmailPattern.test(target.value) ?null:"Invalid Email");
                 break;
             case "passWord":
                 setPassWord(target.value);
                 setPassWordError(target.value.length<8?"Password must be at least 8 charaters long":null);
+                break;
+            default:
                 break;
         }
     }
 
     const handleSubmit=(event)=>{
         if(!userEmailError && !passWordError ){
-            //console.log(userEmail,passWord);
             signIn(userEmail,passWord)
             .then((user)=>{
                 console.log(user);
@@ -61,7 +62,7 @@ function SignInComponent(props){
                         </div>
                         {loginError && <div className="mb-2 text-danger">{loginError}</div>}
                         <div >
-                            <button type="submit" className="btn btn-primary w-100 ">Sign In</button>
+                            <button type="submit" className="btn btn-primary w-100 " disabled={userEmailError || passWordError}>Sign In</button>
                         </div>
                     </form>
 

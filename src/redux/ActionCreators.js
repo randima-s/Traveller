@@ -16,40 +16,7 @@ export const fetchComments=()=>dispatch=>{
     .catch(error=>{
         console.log("Error: "+error);
     });
-    /*db.collection("comments").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            comments.push({
-                ...doc.data(),
-                id:doc.id
-            })
-        });
-        dispatch(loadComments(comments));
-    })
-    .catch(error=>{
-        console.log("Error: "+error);
-    })*/
 }
-
-/*export const addComment=(comment,postId,user)=>dispatch=>{
-    
-    const newComment={
-        postId:postId,
-        comment:comment,
-        user:user,
-        date:firebase.firestore.Timestamp.fromDate(new Date())
-    };
-
-    db.collection("comments").add(newComment)
-    .then((docRef)=>{
-        newComment.id=docRef.id;
-        dispatch(updateComments(newComment));
-    })
-    .catch((error)=>{
-        console.log("Error adding document: "+error);
-    });
-    
-}*/
 
 export const loadComments=comments=>{
     return({
@@ -79,20 +46,6 @@ export const fetchBlogs=()=>dispatch=>{
         console.log("Error: "+error);
         dispatch(errorBlogs(error));
     });
-    /*db.collection("blogs").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            blogs.push({
-                ...doc.data(),
-                id:doc.id
-            })
-        });
-        dispatch(loadBlogs(blogs));
-    })
-    .catch(error=>{
-        console.log("Error: "+error);
-        dispatch(errorBlogs(error));
-    })*/
 }
 
 export const loadingBlogs=()=>{
@@ -136,20 +89,6 @@ export const fetchImages=()=>dispatch=>{
         console.log("Error: "+error);
         dispatch(errorImages(error));
     });
-    /*db.collection("images").get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            images.push({
-                ...doc.data(),
-                id:doc.id
-            })
-        });
-        dispatch(loadImages(images));
-    })
-    .catch(error=>{
-        console.log("Error: "+error);
-        dispatch(errorImages(error));
-    })*/
 }
 
 export const loadingImages=()=>{
