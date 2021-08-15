@@ -44,8 +44,8 @@ import {addData} from "../firebase/fireStore";
 
     const miniImages=props.images.map((image)=>{
         return(
-            <div className="col col-lg-4 col-md-4 col-sm-6 p-2 d-flex mini-image" key={image.id} >
-            <img src={image.url} alt={image.caption} className="w-100 align-self-center border border-dark"
+            <div className="col col-lg-4 col-md-4 col-sm-6 p-2 " key={image.id} >
+            <img src={image.url} alt={image.caption} className="w-100 blog-mini-image"
             onClick={()=>handleImageClick(image.id)}></img>
             </div>
         );
@@ -68,7 +68,7 @@ import {addData} from "../firebase/fireStore";
              <p className="text-center ">{props.blogData.user} , {convertDate(props.blogData.createdAt)}</p>
              <img src={selectedImage} alt={featuredImg.caption} className=" rounded px-2 mx-auto d-block mb-2" onClick={()=>handleImageClick(featuredImg.id)}
              style={{maxHeight:"60vh",width:"auto",maxWidth:"100%"}}></img>
-             <div className="row px-2">
+             <div className="flex-container">
                  {miniImages}
                  <div className="col col-lg-4 col-md-4 col-sm-6 p-2 text-light position-relative blog-new-image" key={"new_image"} >
                     <Link to={"/upload"+props.blogData.id}>

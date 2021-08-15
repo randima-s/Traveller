@@ -42,7 +42,7 @@ class GalleryComponent extends Component{
                     </ol>
                     </div>
                     <div className="container">
-                    <div className="row  justify-content-center mb-4">
+                    <div className="flex-container">
                         {Items}
                     </div>
                     </div>
